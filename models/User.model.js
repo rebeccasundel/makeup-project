@@ -1,0 +1,38 @@
+const { Schema, model } = require("mongoose");
+
+// TODO: Please make sure you edit the user model to whatever makes sense in this case
+const userSchema = new Schema({
+  name: String,
+
+  username: {
+    type: String,
+    unique: [true, "Username is already taken"],
+  },
+  email: {
+    type: String,
+    required: [true, "Please enter email"],
+    unique: [true, "Email is already registered"],
+    match: [
+      /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+      "Please enter a valid email",
+    ],
+  },
+  password: String,
+  friendCode: {
+    type: String,
+    match: [
+      /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+      "Please enter a valid email",
+    ],
+  },
+
+  undertone: {
+    type: String,
+    match: ["cool", "neutral", "warm"
+    ],
+  },
+});
+
+const User = model("User", userSchema);
+
+module.exports = User;

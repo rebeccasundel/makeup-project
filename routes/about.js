@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-/* GET home page */
+/* GET about us page */
 router.get("/", (req, res, next) => {
   res.render("about");
 });

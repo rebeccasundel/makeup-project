@@ -1,8 +1,8 @@
 const router = require("express").Router();
 
-/* GET products page */
+/* GET about us page */
 router.get("/", (req, res, next) => {
-  res.render("product");
+  res.render("about");
 });
 
 module.exports = router;

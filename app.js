@@ -29,19 +29,19 @@ const index = require("./routes/index");
 app.use("/", index);
 
 const auth = require("./routes/auth");
-app.use("/", auth);
+app.use("/auth", auth);
 
 const user = require("./routes/user");
-app.use("/", user)
+app.use("/user", user)
 
 const products = require("./routes/product");
-app.use("/", products);
+app.use("/product", products);
 
 const aboutUs = require("./routes/about");
-app.use("/", aboutUs);
+app.use("/about", aboutUs);
 
 const rankings = require("./routes/rankings");
-app.use("/", rankings);
+app.use("/rankings", rankings);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

@@ -22,29 +22,30 @@ require("./config")(app);
 const projectName = "Makeup-Project";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
+
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
-// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require("./error-handling")(app);
+
 
 // 👇 Start handling routes here
-const index = require("./routes/index");
-app.use("/", index);
+// const index = require("./routes/index");
+app.use("/", require("./routes/index"));
 
 const auth = require("./routes/auth");
-app.use("/", auth);
+app.use("/auth", auth);
 
 const user = require("./routes/user");
-app.use("/", user)
+app.use("/user", user)
 
 const products = require("./routes/product");
-app.use("/", products);
+app.use("/products", products);
 
 const aboutUs = require("./routes/about");
-app.use("/", aboutUs);
+app.use("/about", aboutUs);
 
 const rankings = require("./routes/rankings");
-app.use("/", rankings);
+app.use("/rankings", rankings);
 
-
+// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
+require("./error-handling")(app);
 
 module.exports = app;

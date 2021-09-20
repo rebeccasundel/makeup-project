@@ -1,3 +1,6 @@
+
+
+
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require("dotenv/config");
@@ -33,8 +36,6 @@ app.use("/", index);
 const auth = require("./routes/auth");
 app.use("/auth", auth);
 
-const edit = require("./routes/edit");
-app.use("/edit", edit);
 
 const user = require("./routes/user");
 app.use("/user", user)

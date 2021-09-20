@@ -1,14 +1,23 @@
-const express = require("express");
-const router = express.Router();
+// const express = require("express");
+// const router = express.Router();
 
 
 
-/* GET home page */
+// /* GET home page */
+// router.get("/", (req, res, next) => {
+
+//   res.render("index");
+// });
+
+
+
+// module.exports = router;
+
+const router = require("express").Router();
+
+/* GET about us page */
 router.get("/", (req, res, next) => {
-  console.log("index");
-  res.render("index");
+  res.render('index', {});
 });
-
-
 
 module.exports = router;

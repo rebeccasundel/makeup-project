@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/Makeup-Project";
 
+
 mongoose
   .connect(MONGO_URI)
   .then((x) => {
@@ -17,3 +18,4 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
   });
+

@@ -1,3 +1,6 @@
+
+
+
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require("dotenv/config");
@@ -22,7 +25,9 @@ require("./config")(app);
 const projectName = "Makeup-Project";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
+
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
+
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
@@ -30,6 +35,7 @@ app.use("/", index);
 
 const auth = require("./routes/auth");
 app.use("/auth", auth);
+
 
 const user = require("./routes/user");
 app.use("/user", user)
@@ -42,7 +48,6 @@ app.use("/about", aboutUs);
 
 const rankings = require("./routes/rankings");
 app.use("/rankings", rankings);
-
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

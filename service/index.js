@@ -1,24 +1,38 @@
+// module.exports = app => {
+//     app.use('/', require('./base.routes'));
+//     app.use('/rankings', require('./products')); // add this!
+// };
+
 const axios = require('axios');
 
-class ProductApi {
+class ProductsApi {
     constructor() {
         this.api = axios.create({
-            baseURL: 'http://makeup-api.herokuapp.com/api/v1/products.json'
+            baseURL: 'http://makeup-api.herokuapp.com/api/v1/products.json?brand'
         });
     }
 
-    getAllProduct = () => this.api.get('/product');
+    getAllProducts = () => this.api.get('/rankings');
 
-    getOneProduct = productId => this.api.get(`/product/${id}`);
+    getOneProduct = productId => this.api.get(`/rankings/${productId}`);
 
-    createProduct = productInfo => this.api.post(`/product`, productInfo);
+    createProduct = productInfo => this.api.post(`/rankings`, productInfo);
 
-    editProduct = (productId, productInfo) => this.api.put(`/product/${id}`, productInfo);
+    editProduct = (productId, productInfo) => this.api.put(`/rankings/${productId}`, productInfo);
 
-    deleteProduct = productId => this.api.delete(`/product/${id}`);
+    deleteProduct = productId => this.api.delete(`/rankings/${productId}`);
 }
 
-module.exports = ProductApi;
 
+// const myApi = new ProductsApi();
+
+// myApi
+//     .getAllProducts()
+//     .then(response => console.log(`All characters are:`, response.data))
+//     .catch(error => console.log(error));
+
+
+
+module.exports = ProductsApi;
 
 

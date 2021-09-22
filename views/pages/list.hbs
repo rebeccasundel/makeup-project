@@ -4,20 +4,25 @@
 
     <div class="row">
 
-        {{#each product}}
+        {{#each products}}
         <div class="col-md-4">
             <article class="product">
                 <h2>{{name}} <small>(ID {{id}})</small></h2>
                 <hr>
                 <p>Brand: {{brand}}</p>
                 <p>Description: {{description}}</p>
+                <div>
+                    <img src="{{image_link}}" width="200" height="200">
+                </div>
                 <div class="btn-group" style="width: 100%">
-                    <a href="/product/edit/{{id}}" class="btn btn-outline-dark btn-sm">Edit Product</a>
-                    <a href="/product/delete/{{id}}" class="btn btn-dark btn-sm">Delete Product</a>
+                    <a href="/rankings/edit/{{id}}" class="btn btn-outline-dark btn-sm">Edit Product</a>
+                    {{!-- <a href="/rankings/delete/{{id}}" class="btn btn-dark btn-sm">Delete Product</a> --}}
+                    <a href="/rankings/create/" class="btn btn-success">Add Favorite</a>
                 </div>
             </article>
         </div>
         {{/each}}
+
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </div>
 

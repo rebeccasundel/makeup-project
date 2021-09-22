@@ -38,7 +38,7 @@
 
 <div id="form">
   <h2>Signup</h2>
-  <form action="/" method="POST">
+  <form action="/auth/signup" method="POST">
 
     <label> Username
       <input type="text" name="username" placeholder="ironhacker" />
@@ -55,15 +55,16 @@
     <button type="submit">Create account</button>
 
     {{!-- error message will be added here --}}
+    <p>{{errorMessage}}</p>
   </form>
 </div>
 
 <p>What's your undertone?</p>
-<input type="radio" id="tone1" name="cool">
+<input type="radio" id="tone1" name="undertone">
 <label for="tone1">Cool Tone</label><br>
-<input type="radio" id="tone2" name="neutral">
+<input type="radio" id="tone2" name="undertone">
 <label for="tone2">Neutral Tone</label><br>
-<input type="radio" id="tone3" name="warm">
+<input type="radio" id="tone3" name="undertone">
 <label for="age3">Warm Tone</label><br><br>
 
 <button type="submit">Submit</button>

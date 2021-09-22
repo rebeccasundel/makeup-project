@@ -1,0 +1,26 @@
+<h1>Warm tones Favorites</h1>
+<section class="container">
+
+    <hr>
+
+    <div class="row">
+
+        {{#each products}}
+        <div class="col-md-4">
+            <article class="character">
+                <h2>{{brand}} <small>(ID {{products.id}})</small></h2>
+                <hr>
+                <p>Name: {{name}}</p>
+                <p> Description: {{description}}</p>
+
+                <div class="btn-group" style="width: 100%">
+                    <a href="/rankings/edit/{{id}}" class="btn btn-outline-dark btn-sm">Edit products</a>
+                    <a href="/rankings/delete/{{id}}" class="btn btn-dark btn-sm">Delete products</a>
+                </div>
+            </article>
+        </div>
+
+        {{/each}}
+    </div>
+
+</section>

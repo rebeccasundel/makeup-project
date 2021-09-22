@@ -14,11 +14,9 @@ const productSchema = new Schema({
     price: Number,
     rating: Number,
     image_link: String,
-    tag_list: String,
+    tag_list: [String],
 
 
 });
 
-const User = model("Product", productSchema);
-
-module.exports = Product;
+module.exports = model("Product", productSchema);

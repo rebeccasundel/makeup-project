@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <h1>Edit Collection {{products.name}}</h1>
+
+                <hr>
+
+                <form action="/rankings/edit/{id}" method="post">
+                    <label>
+                        Collection Name: <input type="text" name="name" value="{{products.name}}">
+                    </label>
+
+                    <label>
+                        Product Name: <input type="text" name="brand" value="{{products.brand}}">
+                    </label>
+
+                    <label>
+                        Product Brand: <input type="text" name="brand" value="{{products.brand}}">
+                    </label>
+
+                    <label>
+                        Description: <input type="text" name="weapon" value="{{products.description}}">
+                    </label>
+
+                    <div>
+                        <h2>{{products.name.id}} <small>(ID {{id}})</small></h2>
+                        <hr>
+                        <p>Brand: {{brand}}</p>
+                        <p>Description: {{description}}</p>
+                        <div>
+                            <img src="{{image_link}}" width="200" height="200">
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Submit" class="btn-dark btn">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

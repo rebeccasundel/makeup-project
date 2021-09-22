@@ -43,11 +43,16 @@ app.use("/user", user)
 const products = require("./routes/product");
 app.use("/product", products);
 
+// const create = require("./routes/create");
+// app.use("/create", create);
+
 const aboutUs = require("./routes/about");
 app.use("/about", aboutUs);
 
-const rankings = require("./routes/rankings");
-app.use("/rankings", rankings);
+app.use("/collection", require("./routes/collection.routes"));
+
+// const rankings = require("./routes/rankings");
+// app.use("/rankings", rankings);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

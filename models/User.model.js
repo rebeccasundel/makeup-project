@@ -28,9 +28,10 @@ const userSchema = new Schema({
 
   undertone: {
     type: String,
-    match: ["cool", "neutral", "warm"
-    ],
+    match: ["cool", "neutral", "warm"],
   },
+
+  collections: [{ type: Schema.Types.ObjectId, ref: "Collection" }]
 });
 
 const User = model("User", userSchema);

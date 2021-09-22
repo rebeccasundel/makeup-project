@@ -78,7 +78,7 @@ const express = require("express");
 
 const router = require("express").Router();
 const Product = require('../models/Product.model')
-const Post = require('../models/Post.model')
+
 
 /* GET products page */
 router.get("/", (req, res, next) => {

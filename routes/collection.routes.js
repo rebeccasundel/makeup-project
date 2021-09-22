@@ -6,9 +6,9 @@ router.get("/create", (req, res, next) => {
     res.render('pages/create');
 });
 
-router.post('/create', (res, req) => {
-
-})
+// router.post('/create', (res, req) => {
+//     res
+// })
 
 
 module.exports = router;

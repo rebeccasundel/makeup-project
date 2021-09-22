@@ -1,11 +1,8 @@
-
-
-
 const router = require("express").Router();
 
-/* GET rankings page */
+/* GET about us page */
 router.get("/", (req, res, next) => {
-  res.render("rankings");
+    res.render('edit', {});
 });
 
 module.exports = router;

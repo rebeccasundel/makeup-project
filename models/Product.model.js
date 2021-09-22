@@ -1,4 +1,8 @@
+
+
 const { Schema, model } = require("mongoose");
+
+
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const productSchema = new Schema({
@@ -10,11 +14,9 @@ const productSchema = new Schema({
     price: Number,
     rating: Number,
     image_link: String,
-    tag_list: String,
+    tag_list: [String],
 
 
 });
 
-const User = model("Product", productSchema);
-
-module.exports = Product;
+module.exports = model("Product", productSchema);

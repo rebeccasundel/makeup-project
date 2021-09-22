@@ -1,10 +1,18 @@
 body {
+  background-color: aquamarine;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+nav {
+  margin-top: 3rem;
+}
+
+.about-section {
+  
+}
 
 a {
-  color: #00b7ff;
+  color: #400542;
 }
 
 h1 {

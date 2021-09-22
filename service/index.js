@@ -24,12 +24,7 @@ class ProductsApi {
 }
 
 
-// const myApi = new ProductsApi();
 
-// myApi
-//     .getAllProducts()
-//     .then(response => console.log(`All characters are:`, response.data))
-//     .catch(error => console.log(error));
 
 
 

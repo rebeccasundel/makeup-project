@@ -78,10 +78,19 @@ const express = require("express");
 
 const router = require("express").Router();
 const Product = require('../models/Product.model')
+const Post = require('../models/Post.model')
 
 /* GET products page */
 router.get("/", (req, res, next) => {
   Product.find({}).limit(20).then((responseFromDB) => {
+
+    res.render("pages/list", { products: responseFromDB });
+  })
+});
+
+
+router.post("/", (req, res, next) => {
+  Product.create.then((responseFromDB) => {
 
     res.render("pages/list", { products: responseFromDB });
   })

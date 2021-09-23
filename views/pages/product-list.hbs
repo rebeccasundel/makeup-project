@@ -1,0 +1,16 @@
+{{#each posts}}
+<div class="col-md-4">
+    <article>
+        <h2>{{name}} <small> </small></h2>
+        <hr>
+        <p>Brand: {{brand}}</p>
+        <p>Description: {{description}}</p>
+
+        <div class="btn-group" style="width: 100%">
+            <a href="/characters/edit/" class="btn btn-outline-dark btn-sm">Edit character</a>
+            <a href="/characters/delete/" class="btn btn-dark btn-sm">Delete character</a>
+        </div>
+
+    </article>
+</div>
+{{/each}}

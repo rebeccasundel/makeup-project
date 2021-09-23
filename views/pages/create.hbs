@@ -16,3 +16,42 @@
 
     <button type="submit" id="createitem">Add</button>
 </form>
+
+
+
+{{!-- <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Name {{name}}</h5>
+
+        <h6 class="card-subtitle mb-2 text-muted">Brand:{{brand}}</h6>
+        <p class="card-text">Description: {{description}}</p>
+        <a href="#" class="card-link">Edit</a>
+        <a href="#" class="card-link">Delete</a>
+    </div>
+</div> --}}
+
+
+
+
+<h1>Collection Posts</h1>
+<hr>
+
+
+
+{{#each posts}}
+<div class="col-md-4">
+
+    <h2>Name {{name}} <small> </small></h2>
+
+    <p>Brand: {{posts.brand}}</p>
+    <p>Description: {{posts.description}}</p>
+    {{!--
+    <div class="btn-group" style="width: 100%">
+        <a href="/characters/edit/" class="btn btn-outline-dark btn-sm">Edit character</a>
+        <a href="/characters/delete/" class="btn btn-dark btn-sm">Delete character</a>
+    </div> --}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</div>
+
+{{/each}}

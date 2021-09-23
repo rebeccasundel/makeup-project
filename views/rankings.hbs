@@ -9,15 +9,18 @@
         <input id="product-name-input" type="text" />
         <button id="get-product-btn">Search</button>
     </div>
+
+
+
     <div>
-        <h1 id="product-brand"></h1>
-        <h2 id="product-name"></h2>
-        <p id="product-description"></p>
+        <h1 id="product-brand">{{brand}}</h1>
+        <h2 id="product-name">{{name}}</h2>
+        <p id="product-description">{{description}}</p>
         <p id="price"></p>
-        <a href="/rankings/create/" class="btn btn-success">Add Favorite</a>
+        <a href="/collection/create/{{id}}" class="btn btn-success">Add Favorite</a>
         {{!-- <button id="add-favorites-button">Add Favorites</button> --}}
 
-        <button id="add-favorites-button">Add Favorites</button>
+        {{!-- <button id="add-favorites-button">Add Favorites</button> --}}
 
     </div>
     <div>
@@ -25,14 +28,14 @@
     </div>
 
 
-    <div>
+    {{!-- <div>
         <h1 id="product-brand1"></h1>
         <h2 id="product-name1"></h2>
         <p id="product-description1"></p>
         <p id="price1"></p>
         {{!-- <button id="add-favorites-button1">Add Favorites</button> --}}
         <a href="/rankings/create/{{id}}" class="btn btn-success">Add Favorite</a>
-        =======
+
         <button id="add-favorites-button1">Add Favorites</button>
 
     </div>
@@ -82,7 +85,7 @@
         <img id="image_link4" src="" height="200px" />
 
     </div>
-
+    --}}
 
 
 

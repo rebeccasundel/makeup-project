@@ -6,6 +6,17 @@ nav {
   margin-top: 3rem;
 }
 
+index-selection {
+  padding: 50px;
+  text-align: center
+
+  background-image url('makeupcollage.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
 about-section {
 
   padding: 50px;
@@ -154,3 +165,4 @@ button:hover {
     width: 100%;
   }
 }
+

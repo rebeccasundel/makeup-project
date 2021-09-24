@@ -5,6 +5,7 @@ const postSchema = new Schema(
         products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
         brand: String,
         name: String,
+        makeupId: String,
         description: String,
         user: { type: Schema.Types.ObjectId, ref: "User" },
         undertone: { type: String, enum: ['warm', 'cool', 'neutral'] }

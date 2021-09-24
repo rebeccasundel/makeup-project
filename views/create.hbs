@@ -1,0 +1,79 @@
+<h1>Create Favorites List</h1>
+<form action="/collection/create/{{makeupId}}" id="create-product-list" method="POST">
+    <input type="text" id="brand-form" name="brand" placeholder="collection" />
+    <input type="name" name="name" placeholder="name" />
+    <input type="text" name="description" placeholder="description" />
+    {{!-- <input type="radio" name="undertone" placeholder="undertone" /> --}}
+    <p>Recommended Undertone:</p>
+    <input type="radio" id="cool" name="undertone" value="cool">
+    <label for="cool">Cool</label><br>
+    <input type="radio" id="neutral" name="undertone" value="neutral">
+    <label for="neutral">Neutral</label><br>
+    <input type="radio" id="warm" name="undertone" value="warm">
+    <label for="warm">Warm</label><br>
+    <button type="submit" id="createitem">Add</button>
+</form>
+{{!-- <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Name {{name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Brand:{{brand}}</h6>
+        <p class="card-text">Description: {{description}}</p>
+        <a href="#" class="card-link">Edit</a>
+        <a href="#" class="card-link">Delete</a>
+    </div>
+</div> --}}
+<h1>Collection Posts</h1>
+<hr>
+{{#each copyOfPost}}
+<div class="col-md-4">
+    <h2> Collection Name {{name}} <small> </small></h2>
+    <h5>Brand: {{brand}}</h5>
+    <img src="{{image_link}}">
+    <p>Description: {{posts.description}}</p>
+    {{!--
+    <div class="btn-group" style="width: 100%">
+        <a href="/characters/edit/" class="btn btn-outline-dark btn-sm">Edit character</a>
+        <a href="/characters/delete/" class="btn btn-dark btn-sm">Delete character</a>
+    </div> --}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</div>
+{{/each}}<h1>Create Favorites List</h1>
+<form action="/collection/create/{{makeupId}}" id="create-product-list" method="POST">
+    <input type="text" id="brand-form" name="brand" placeholder="collection" />
+    <input type="name" name="name" placeholder="name" />
+    <input type="text" name="description" placeholder="description" />
+    {{!-- <input type="radio" name="undertone" placeholder="undertone" /> --}}
+    <p>Recommended Undertone:</p>
+    <input type="radio" id="cool" name="undertone" value="cool">
+    <label for="cool">Cool</label><br>
+    <input type="radio" id="neutral" name="undertone" value="neutral">
+    <label for="neutral">Neutral</label><br>
+    <input type="radio" id="warm" name="undertone" value="warm">
+    <label for="warm">Warm</label><br>
+    <button type="submit" id="createitem">Add</button>
+</form>
+{{!-- <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Name {{name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Brand:{{brand}}</h6>
+        <p class="card-text">Description: {{description}}</p>
+        <a href="#" class="card-link">Edit</a>
+        <a href="#" class="card-link">Delete</a>
+    </div>
+</div> --}}
+<h1>Collection Posts</h1>
+<hr>
+{{#each copyOfPost}}
+<div class="col-md-4">
+    <h2> Collection Name {{name}} <small> </small></h2>
+    <h5>Brand: {{brand}}</h5>
+    <img src="{{image_link}}">
+    <p>Description: {{posts.description}}</p>
+    {{!--
+    <div class="btn-group" style="width: 100%">
+        <a href="/characters/edit/" class="btn btn-outline-dark btn-sm">Edit character</a>
+        <a href="/characters/delete/" class="btn btn-dark btn-sm">Delete character</a>
+    </div> --}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</div>
+{{/each}}

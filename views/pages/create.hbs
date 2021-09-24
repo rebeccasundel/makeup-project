@@ -1,8 +1,10 @@
 <h1>Create Favorites List</h1>
+{{!-- "/collection/create/{{makeupId}}" --}}
 
-
-<form action="/collection/create/{{makeupId}}" id="create-product-list" method="POST">
-    <input type="text" id="brand-form" name="brand" placeholder="collection" />
+<form action="/collection/create/" id="create-product-list" method="POST">
+    <input type="number" id="top3" name="top3" min="1" max="3">
+    <input type="collection" name="collection" placeholder="collection name" />
+    <input type="text" id="brand-form" name="brand" placeholder="brand" />
     <input type="name" name="name" placeholder="name" />
     <input type="text" name="description" placeholder="description" />
     {{!-- <input type="radio" name="undertone" placeholder="undertone" /> --}}
@@ -36,23 +38,42 @@
 <h1>Collection Posts</h1>
 <hr>
 
+<div>
+    <h1>{{undertone}}</h1>
+    {{#each cop}}
+    <div class="col-md-4">
+        {{postId}}
+
+        <h1>{{top3}}{{collectionName}}</h1>
+        <h2> Collection Name: {{name}} <small> </small></h2>
+        <h5>Brand: {{brand}}</h5>
+        <h5>Recommended undertone:{{undertone}}</h5>
+        <img src="{{image_link}}">
+
+        <p>Description: {{description}}</p>
+
+        <div class="btn-group" style="width: 100%">
+
+            <a href="/collection/create/edit/{{id}}" class=" btn btn-dark btn-sm">Edit</a>
+            <form action="/create/{{id}}/delete" method="POST">
+                <button>🗑 DELETE</button>
+            </form>
+        </div>
 
 
-{{#each copyOfPost}}
-<div class="col-md-4">
+        {{!-- /room/{{_id}}/delete --}}
 
-    <h2> Collection Name {{name}} <small> </small></h2>
-    <h5>Brand: {{brand}}</h5>
-    <img src="{{image_link}}">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <p>Description: {{posts.description}}</p>
-    {{!--
-    <div class="btn-group" style="width: 100%">
-        <a href="/characters/edit/" class="btn btn-outline-dark btn-sm">Edit character</a>
-        <a href="/characters/delete/" class="btn btn-dark btn-sm">Delete character</a>
-    </div> --}}
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </div>
+
+    {{/each}}
+
+
+
+
+
+
+
 
 </div>
-
-{{/each}}

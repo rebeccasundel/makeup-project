@@ -7,6 +7,7 @@
         {{#each products}}
         <div class="col-md-4">
             <article class="product">
+                {{id}}
                 <h2>{{name}} </h2>
                 <hr>
                 <p>Brand: {{brand}}</p>
@@ -16,22 +17,117 @@
                     <img src="{{image_link}}" width="200" height="200">
                 </div>
                 <div class="btn-group" style="width: 100%">
-                    <a href="/collection/create/{{id}}" class="btn btn-outline-dark btn-sm">Edit Product</a>
+                    <a href="/{{id}}/edit" class="btn btn-outline-dark btn-sm">Edit Product</a>
                     {{!-- <a href="/rankings/delete/{{id}}" class="btn btn-dark btn-sm">Delete Product</a> --}}
-                    <a href="/collection/create/{{id}}" class="btn btn-success">Add Favorite</a>
+                    <a href="/collection/create/" class="btn btn-success">Add Favorite</a>
                 </div>
-            </article>
+                <form id="create-product-list" method="POST">
+
+                    <h3 id="results">
+                        {{!-- <p id="coolVote">Cool: {{voteUndertone}}</p>
+                        <p id="neutralVote"> Neutral: 0</p>
+                        <p id="warmVote"> Warm: 0</p>
+
+                    </h3>
+                    <a href="/product/" type="button" id="cool-button">Cool</a>
+                    <a href="vote/${id}" type="button" id="neutral-button">Neutral</a>
+                    <a href="vote/${id}" type="button" id="warm-button">Warm</a> --}}
+
+                    {{!-- <div id="counter">o</div>
+                    <button id="reset">reset</button> --}}
+                </form>
+                <h3>Recommended Undertone</h3>
+                <div>
+                    <p>Cool Tone</p>
+                    <button id="counter">0</button><br>
+                </div>
+                <div>
+                    <p>Neutral Tone</p>
+                    <button id="counter1">0</button><br>
+                </div>
+                <p>Warm Tone</p>
+                <button id="counter2">0{{voteUndertone}}</button><br>
+                <button id="reset">reset</button>
         </div>
-        {{/each}}
+
+        <script>
+            var count = 0
+            var count1 = 0
+            var count2 = 0
+
+            document.getElementById("counter").onclick = function () {
+                count = count + 1;
+                this.innerHTML = count
+            }
+            document.getElementById("counter1").onclick = function () {
+                count1 = count1 + 1;
+                this.innerHTML = count1
+            }
+            document.getElementById("counter2").onclick = function () {
+                count2 = count2 + 1;
+                this.innerHTML = count2
+            }
+
+
+            document.getElementById("reset").onclick = function () {
+                count = 0;
+                count1 = 0;
+                count2 = 0;
+                document.getElementById("counter").innerHTML = count;
+                document.getElementById("counter1").innerHTML = count1;
+                document.getElementById("counter2").innerHTML = count2;
+            }
+
+
+        </script>
+
+
+        </article>
+    </div>
+    {{/each}}
+    {{!--
+    <script>
+        var count = 0
+        var count1 = 0
+        var count2 = 0
+
+        document.getElementById("counter").onclick = function () {
+            count = count + 1;
+            this.innerHTML = count
+        }
+        document.getElementById("counter1").onclick = function () {
+            count1 = count1 + 1;
+            this.innerHTML = count1
+        }
+        document.getElementById("counter2").onclick = function () {
+            count2 = count2 + 1;
+            this.innerHTML = count2
+        }
+
+
+        document.getElementById("reset").onclick = function () {
+            count = 0;
+            count1 = 0;
+            count2 = 0;
+            document.getElementById("counter").innerHTML = count;
+            document.getElementById("counter1").innerHTML = count1;
+            document.getElementById("counter2").innerHTML = count2;
+        }
+
+
+    </script> --}}
+
+
+
+    {{!--
+
+    href="/collection/create/{{id}}"
+    href="/collection/create/{{id}}" --}}
 
 
 
 
-
-
-
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </div>
 
 </section>

@@ -147,6 +147,7 @@ router.get("/create", (req, res, next) => {
                 products: favPost.products,
                 description: favPost.description,
                 top3: favPost.top3,
+                imageUrl: favPost.imageUrl,
                 collectionName: favPost.collectionName,
                 undertone: favPost.undertone,
                 makeupId: req.params.makeId,
@@ -164,72 +165,133 @@ router.get("/create/edit", (req, res, next) => {
 });
 
 
+// router.get("/create/:postId/delete", (req, res, next) => {
+//     res.render("pages/edit");
+
+// });
+
+
+
 // <form action="/books/{{_id}}/delete" method="POST">
-router.post("/create/:postId/delete", (req, res, next) => {
+// router.post("/create/:postId/delete", (req, res, next) => {
 
-    const postId = req.params.postId;
-    console.log(postId);
-    console.log("hi");
-    Post.findByIdAndDelete(req.params.postId)
-        .then(() => {
-            res.redirect("/create"); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO LIST OF ALL BOOKS PAGE TO SEE THAT YOUR BOOK IS NOT THERE ANY MORE
-        })
-        .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
-})
+//     Post.findByIdAndDelete(req.params.postId)
+//         .then(() => {
+//             res.redirect("/create"); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO LIST OF ALL BOOKS PAGE TO SEE THAT YOUR BOOK IS NOT THERE ANY MORE
+//         })
+//         .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
+// })
 
+// router.delete("/create/:postId/delete", async function (req, res) {
+//     try {
+//         const post = await Post.findByIdAndUpdate(
+//             req.params.postId,
+
+//         );
+
+//         if (!post) {
+//             return res.status(400).send("Post not found");
+//         }
+
+//         //   await Comment.findByIdAndDelete(req.params.commentId);
+
+//         res.send("Success");
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).send("Something went wrong");
+//     }
+// });
+
+router.post('/create/:postId/delete', (req, res, next) => {
+    const { postId } = req.params;
+
+    Post.findByIdAndDelete(postId)
+        .then(() => res.redirect('/create'))
+        .catch(error => next(error));
+});
+
+
+
+
+
+
+
+
+router.post('/create/:postId/edit', (req, res, next) => {
+    const { postId } = req.params;
+    const { name, brand, description, undertone } = req.body;
+
+    Post.findByIdAndUpdate(postId, { name, brand, description, undertone }, { new: true })
+        .then(updatedPost => res.redirect(`/create/${updatedPost.id}`)) // go to the details page to see the updates
+        .catch(error => next(error));
+});
 
 // ****************************************************************************************
 // GET route to update (edit) a book
 // ****************************************************************************************
 
-router.get("/create/:postId/edit", (req, res, next) => {
+// router.get("/create/:postId/edit", (req, res, next) => {
 
-    Post.findById(req.params.postId)
-        .then((postToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
+//     Post.findById(req.params.postId)
+//         .then((postToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
 
-            // console.log("Book to be edited: ", bookToBeEditedFromDB)
-            res.render("pages/edit", postToBeEditedFromDB);
+//             // console.log("Book to be edited: ", bookToBeEditedFromDB)
+//             res.render("pages/edit", postToBeEditedFromDB);
+//         })
+//         .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
+// });
+
+
+
+router.get('/create/:postId/edit', (req, res, next) => {
+    const { postId } = req.params;
+
+    Post.findById(postId)
+        .then(postToEdit => {
+            res.render('create/edit.hbs', { post: postToEdit }); // <-- add this line
+
         })
-        .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
+        .catch(error => next(error));
 });
+
 
 // ****************************************************************************************
 // POST route to update (edit) a book
 // ****************************************************************************************
 // <form action="/books/{{_id}}/edit" method="POST">
 
-router.post("/create/:postId/edit", (req, res, next) => {
+// router.post("/create/:postId/edit", (req, res, next) => {
 
-    // console.log("is this UPDATED book: ", req.body);
+//     // console.log("is this UPDATED book: ", req.body);
 
-    const {
-        brand,
-        name,
-        products,
-        description,
-        top3,
-        collectionName,
-        undertone,
-        makeupId,
-    } = req.body;
+//     const {
+//         brand,
+//         name,
+//         products,
+//         description,
+//         top3,
+//         collectionName,
+//         undertone,
+//         makeupId,
+//     } = req.body;
 
-    Post.findByIdAndUpdate(req.params.postId, {
-        brand,
-        name,
-        products,
-        description,
-        top3,
-        collectionName,
-        undertone,
-        makeupId,
-    }, { new: true })
-        .then(updatedPostFromDB => { // updatedBookFromDB - placeholder
-            // console.log("is this updated >>>>> ", updatedBookFromDB);
+//     Post.findByIdAndUpdate(req.params.postId, {
+//         brand,
+//         name,
+//         products,
+//         description,
+//         top3,
+//         collectionName,
+//         undertone,
+//         makeupId,
+//     }, { new: true })
+//         .then(updatedPostFromDB => { // updatedBookFromDB - placeholder
+//             // console.log("is this updated >>>>> ", updatedBookFromDB);
 
-            res.redirect(`/create/${req.params.postId}`); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO DETAILS PAGE TO SEE THE UPDATED BOOK
-        })
-        .catch(error => console.log("An error occurred while updating a book in the database: ", error)); // <--- .catch() - if some error happens handle it here
-});
+//             res.redirect(`/create/${req.params.postId}`); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO DETAILS PAGE TO SEE THE UPDATED BOOK
+//         })
+//         .catch(error => console.log("An error occurred while updating a book in the database: ", error)); // <--- .catch() - if some error happens handle it here
+// });
 
 
 

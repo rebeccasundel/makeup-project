@@ -6,7 +6,7 @@ const express = require("express");
 
 const router = require("express").Router();
 const Product = require('../models/Product.model')
-const Poll = require('../models/Poll.model')
+
 
 
 /* GET products page */
@@ -48,16 +48,16 @@ router.post("/", (req, res, next) => {
 //   })
 // });
 
-router.get("/:id/edit", (req, res, next) => {
+// router.get("/:id/edit", (req, res, next) => {
 
-  Product.findById(req.params.id)
-    .then((bookToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
+//   Product.findById(req.params.id)
+//     .then((bookToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
 
-      // console.log("Book to be edited: ", bookToBeEditedFromDB)
-      res.render("pages/edit", bookToBeEditedFromDB);
-    })
-    .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
-});
+//       // console.log("Book to be edited: ", bookToBeEditedFromDB)
+//       res.render("pages/edit", bookToBeEditedFromDB);
+//     })
+//     .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
+// });
 
 
 

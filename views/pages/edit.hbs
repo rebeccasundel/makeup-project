@@ -1,17 +1,17 @@
 <h2>Update a Collection</h2>
 
 
-<form action="/create/{{posts._id}}/edit" method="POST">
+<form action="/create/{{post._id}}/edit" method="POST">
     <label>
         Name:
-        <input type="text" name="title" value="{{name}}">
+        <input type="text" name="title" value="{{post.name}}">
     </label>
     <br>
 
 
     <label>
         Description:
-        <textarea name="description" cols="30" rows="5"> {{ description }} </textarea>
+        <textarea name="description" cols="30" rows="5"> {{post.description }} </textarea>
     </label>
     <br>
 

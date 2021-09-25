@@ -39,23 +39,25 @@
 <hr>
 
 <div>
-    <h1>{{undertone}}</h1>
+
     {{#each cop}}
     <div class="col-md-4">
-        {{postId}}
+        {{makeupId}}
 
         <h1>{{top3}}{{collectionName}}</h1>
         <h2> Collection Name: {{name}} <small> </small></h2>
         <h5>Brand: {{brand}}</h5>
         <h5>Recommended undertone:{{undertone}}</h5>
-        <img src="{{image_link}}">
+        <img src="{{imageUrl}}">
 
         <p>Description: {{description}}</p>
 
         <div class="btn-group" style="width: 100%">
 
-            <a href="/collection/create/edit/{{id}}" class=" btn btn-dark btn-sm">Edit</a>
-            <form action="/create/{{id}}/delete" method="POST">
+            {{!-- <a href="/collection/create/edit/{{_id}}" class=" btn btn-dark btn-sm">Edit</a> --}}
+            <a href="/create/{{_id}}/edit" class=" btn btn-dark btn-sm">Edit</a>
+
+            <form action="/create/{{_id}}/delete" method="POST">
                 <button>🗑 DELETE</button>
             </form>
         </div>

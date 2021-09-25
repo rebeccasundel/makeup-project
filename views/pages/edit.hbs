@@ -1,45 +1,21 @@
-<div class="container">
+<h2>Update a Collection</h2>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
 
-                <h1>Edit Collection {{products.name}}</h1>
+<form action="/create/{{post._id}}/edit" method="POST">
+    <label>
+        Name:
+        <input type="text" name="title" value="{{post.name}}">
+    </label>
+    <br>
 
-                <hr>
 
-                <form action="/rankings/edit/{id}" method="post">
-                    <label>
-                        Collection Name: <input type="text" name="name" value="{{products.name}}">
-                    </label>
+    <label>
+        Description:
+        <textarea name="description" cols="30" rows="5"> {{post.description }} </textarea>
+    </label>
+    <br>
 
-                    <label>
-                        Product Name: <input type="text" name="brand" value="{{products.brand}}">
-                    </label>
 
-                    <label>
-                        Product Brand: <input type="text" name="brand" value="{{products.brand}}">
-                    </label>
 
-                    <label>
-                        Description: <input type="text" name="weapon" value="{{products.description}}">
-                    </label>
-
-                    <div>
-                        <h2>{{products.name.id}} <small>(ID {{id}})</small></h2>
-                        <hr>
-                        <p>Brand: {{brand}}</p>
-                        <p>Description: {{description}}</p>
-                        <div>
-                            <img src="{{image_link}}" width="200" height="200">
-                        </div>
-                    </div>
-
-                    <input type="submit" value="Submit" class="btn-dark btn">
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-</div>
+    <button type="submit">Save changes</button>
+</form>

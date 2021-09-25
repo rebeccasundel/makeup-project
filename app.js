@@ -51,8 +51,9 @@ app.use("/about", aboutUs);
 
 app.use("/collection", require("./routes/collection.routes"));
 
-// const rankings = require("./routes/rankings");
-// app.use("/rankings", rankings);
+const rankings = require("./routes/rankings");
+app.use("/rankings", rankings);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

@@ -3,9 +3,14 @@ const postSchema = new Schema(
     {
         products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
         brand: String,
+        collectionName: String,
         name: String,
         makeupId: String,
         description: String,
+        top3: Number,
+        posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
+
+        imageUrl: { type: String },
         user: { type: Schema.Types.ObjectId, ref: "User" },
         undertone: { type: String, enum: ['warm', 'cool', 'neutral'] }
     }

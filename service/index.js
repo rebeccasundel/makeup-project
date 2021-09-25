@@ -12,18 +12,19 @@ class ProductsApi {
         });
     }
 
-    getAllProducts = () => this.api.get('/rankings');
+    getAllProducts = () => this.api.get('/product');
 
-    getOneProduct = productId => this.api.get(`/rankings/${productId}`);
+    getOneProduct = productId => this.api.get(`/product/${productId}`);
 
     createProduct = productInfo => this.api.post(`/rankings`, productInfo);
 
-    editProduct = (productId, productInfo) => this.api.put(`/rankings/${productId}`, productInfo);
+    editProduct = (productId, productInfo) => this.api.put(`/product/${productId}`, productInfo);
 
-    deleteProduct = productId => this.api.delete(`/rankings/${productId}`);
+    deleteProduct = productId => this.api.delete(`/product/${productId}`);
 }
 
 
+module.exports = ProductsApi;
 
 
 

@@ -14,6 +14,7 @@ const productSchema = new Schema({
     price: Number,
     rating: Number,
     image_link: String,
+
     tag_list: [String],
 
 

@@ -1,22 +1,24 @@
 <h2>Update a Collection</h2>
-
-
-<form action="/edit/{{cop._id}}" method="POST">
-    <input naem="_id" value="{{cop._id}}">
+{{!-- http://localhost:3000/collection/edit/615215563f26b89be35603ce --}}
+{{!-- {{name}}
+{{brand}}
+{{description}} --}}
+<form action="/edit/{{this._id}}" method="POST">
+    <input type="hidden" name="_id" value="{{_id}}">
     <label>
         Name:
-        <input type="text" name="name" value="{{cop.name}}">
+        <input type="text" name="name" value="{{name}}">
     </label>
     <br>
 
     <label>
         Brand:
-        <input type="text" name="brand" value="{{cop.brand}}">
+        <input type="text" name="brand" value="{{brand}}">
     </label>
     <br>
     <label>
         Description:
-        <textarea name="description" cols="30" rows="5"> {{cop.description }} </textarea>
+        <textarea name="description" cols="30" rows="5"> {{description }} </textarea>
     </label>
     <br>
 

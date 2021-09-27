@@ -66,8 +66,8 @@ router.post('/create/delete/:id', (req, res, next) => {
     const { id } = req.params;
     console.log('The ID from the URL is: ', id);
     Post.findByIdAndDelete(id)
-    // .then(() => res.redirect('/create'))
-    // .catch(error => next(error));
+        .then(() => res.redirect('/create'))
+        .catch(error => next(error));
 
 });
 
@@ -109,10 +109,10 @@ router.get('/edit/:id', (req, res, next) => {
 
 
     Post.findById(req.params.id)
-        .then((postToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
+        .then((responseFromDB) => {  // bookToBeEditedFromDB - placeholder
 
             // console.log("Book to be edited: ", bookToBeEditedFromDB)
-            res.render("pages/edit", postToBeEditedFromDB);
+            res.render("pages/edit", responseFromDB);
         })
         .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
 });
@@ -135,7 +135,7 @@ router.post("/edit/:id", (req, res, next) => {
         makeupId,
     } = req.body;
 
-    Post.findByIdAndUpdate(req.params.postId, {
+    Post.findByIdAndUpdate(req.params.d, {
         brand,
         name,
         products,

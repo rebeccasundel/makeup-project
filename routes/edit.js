@@ -1,8 +1,8 @@
-const router = require("express").Router();
+// const router = require("express").Router();
 
-/* GET about us page */
-router.get("/", (req, res, next) => {
-    res.render('edit', {});
-});
+// /* GET about us page */
+// router.get("/", (req, res, next) => {
+//     res.render('edit', {});
+// });
 
-module.exports = router;
+// module.exports = router;

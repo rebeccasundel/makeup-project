@@ -1,37 +1,18 @@
 
 
-// const { default: axios } = require("axios");
-const { default: axios } = require("axios");
-const express = require("express");
-const { create } = require("../models/Collection.model");
+require("dotenv").config();
+
 const router = require("express").Router();
+const axios = require("axios");
+// const { create } = require("../models/Collection.model");
 
+const ObjectId = require('mongodb').ObjectId;
 const Post = require('../models/Collection.model');
-const ProductModel = require("../models/Product.model");
+// const ProductModel = require("../models/Product.model");
 
 
 
-
-
-router.post("/create/", (req, res, next) => {
-
-    // const productInfo = req.body;
-    Post
-
-        .create(
-            req.body
-        )
-        .then(() => res.redirect(`/collection/create/`))
-        .catch((error) => console.log(error));
-});
-
-
-
-
-
-
-
-router.get("/create", (req, res, next) => {
+router.get("/create/", (req, res, next) => {
     Post.find()
         .then((responseFromDB) => {
 
@@ -40,6 +21,7 @@ router.get("/create", (req, res, next) => {
                 name: favPost.name,
                 products: favPost.products,
                 description: favPost.description,
+                _id: favPost._id,
                 top3: favPost.top3,
                 imageUrl: favPost.imageUrl,
                 collectionName: favPost.collectionName,
@@ -54,6 +36,25 @@ router.get("/create", (req, res, next) => {
 
 })
 
+
+
+
+
+
+
+router.post("/create", (req, res, next) => {
+
+    // const productInfo = req.body;
+    Post
+
+        .create(
+            req.body
+        )
+        .then(() => res.redirect(`/collection/create/`))
+        .catch((error) => console.log(error));
+});
+
+
 // router.get("/create/edit", (req, res, next) => {
 //     res.render("pages/edit");
 // });
@@ -61,16 +62,14 @@ router.get("/create", (req, res, next) => {
 
 
 
-router.post('/create/:postId/delete', (req, res, next) => {
-    const { postId } = req.query;
-    console.log('The ID from the URL is: ', postId);
-    Post.findByIdAndDelete(postId)
-        .then(() => res.redirect('/create'))
-        .catch(error => next(error));
+router.post('/create/delete/:id', (req, res, next) => {
+    const { id } = req.params;
+    console.log('The ID from the URL is: ', id);
+    Post.findByIdAndDelete(id)
+    // .then(() => res.redirect('/create'))
+    // .catch(error => next(error));
 
 });
-
-
 
 
 //edit
@@ -88,16 +87,99 @@ router.post('/create/:postId/delete', (req, res, next) => {
 
 
 
-router.get('/create/:postId/edit', (req, res, next) => {
-    const { postId } = req.params;
 
-    Post.findById(postId)
-        .then(postToEdit => {
-            res.render('create/edit.hbs', { post: postToEdit }); // <-- add this line
 
+
+// router.get('/edit', (req, res, next) => {
+//     console.log('Hello');
+//     // const id = req.params.id;
+//     // console.log(id);
+//     const { id } = req.params;
+//     Post.findById(id)
+//         .then(postToEdit => {
+//             res.render('pages/edit', { post: postToEdit }); // <-- add this line
+
+//         })
+//         .catch(error => next(error));
+// });
+
+
+router.get('/edit/:id', (req, res, next) => {
+
+
+
+    Post.findById(req.params.id)
+        .then((postToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
+
+            // console.log("Book to be edited: ", bookToBeEditedFromDB)
+            res.render("pages/edit", postToBeEditedFromDB);
         })
-        .catch(error => next(error));
+        .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
 });
+
+
+
+
+router.post("/edit/:id", (req, res, next) => {
+
+    // console.log("is this UPDATED book: ", req.body);
+
+    const {
+        brand,
+        name,
+        products,
+        description,
+        top3,
+        collectionName,
+        undertone,
+        makeupId,
+    } = req.body;
+
+    Post.findByIdAndUpdate(req.params.postId, {
+        brand,
+        name,
+        products,
+        description,
+        top3,
+        collectionName,
+        undertone,
+        makeupId,
+    }, { new: true })
+        .then(updatedPostFromDB => { // updatedBookFromDB - placeholder
+            // console.log("is this updated >>>>> ", updatedBookFromDB);
+
+            res.redirect(`/create/${req.params.id}`); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO DETAILS PAGE TO SEE THE UPDATED BOOK
+        })
+        .catch(error => console.log("An error occurred while updating a book in the database: ", error)); // <--- .catch() - if some error happens handle it here
+});
+
+// Post.findByIdAndUpdate({ _id: req.body._id }.req.body, { new: true }, (err, doc) => {
+//     if (!err) {
+//         res.redirect('pages/create')
+
+//     } else {
+//         console.log("Error during update: " + err)
+//     }
+// })
+
+// const id = req.params.id;
+
+
+// var id = req.params.gonderi_id;
+// var o_id = new ObjectId(id);
+// db.test.find({ _id: o_id })
+// console.log({ "_id": yourObjectId });
+
+
+// res.render('pages/details')
+// // const { id } = req.params;
+// Post.findById(req.params.id)
+//     .then(postToEdit => {
+//         res.render('pages/edit', { post: postToEdit }); // <-- add this line
+
+//     })
+//     .catch(error => next(error));
+
 
 
 

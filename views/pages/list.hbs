@@ -39,44 +39,52 @@
                 <h3>Recommended Undertone</h3>
                 <div>
                     <p>Cool Tone</p>
-                    <button id="counter">0</button><br>
+                    <button id="cool{{_id}}">{{cool}}</button><br>
                 </div>
                 <div>
                     <p>Neutral Tone</p>
-                    <button id="counter1">0</button><br>
+                    <button id="neutral{{_id}}">{{neutral}}</button><br>
                 </div>
                 <p>Warm Tone</p>
-                <button id="counter2">0{{voteUndertone}}</button><br>
-                <button id="reset">reset</button>
+                <button id="neutral{{_id}}">{{neutral}}</button><br>
+                {{!-- <button id="reset">reset</button> --}}
         </div>
 
         <script>
-            var count = 0
-            var count1 = 0
-            var count2 = 0
+            var count = {{ cool }}
+            var count1 = {{ warm }}
+            var count2 = {{ neutral }}
 
-            document.getElementById("counter").onclick = function () {
+            document.getElementById("cool{{_id}}").onclick = function () {
                 count = count + 1;
                 this.innerHTML = count
+                axios.post('/product/{{_id}}/rate', { rating: 'cool' })
             }
-            document.getElementById("counter1").onclick = function () {
+            document.getElementById("warm{{_id}}").onclick = function () {
                 count1 = count1 + 1;
                 this.innerHTML = count1
+                axios.post('/product/{{_id}}/rate', { rating: 'warm' })
+
             }
-            document.getElementById("counter2").onclick = function () {
+            document.getElementById("neutral{{_id}}").onclick = function () {
                 count2 = count2 + 1;
                 this.innerHTML = count2
+                axios.post('/product/{{_id}}/rate', { rating: 'neutral' })
+
             }
 
 
-            document.getElementById("reset").onclick = function () {
-                count = 0;
-                count1 = 0;
-                count2 = 0;
-                document.getElementById("counter").innerHTML = count;
-                document.getElementById("counter1").innerHTML = count1;
-                document.getElementById("counter2").innerHTML = count2;
-            }
+
+
+            /*  document.getElementById("reset").onclick = function () {
+                      count = 0;
+                      count1 = 0;
+                      count2 = 0;
+                      document.getElementById("counter").innerHTML = count;
+                      document.getElementById("counter1").innerHTML = count1;
+                      document.getElementById("counter2").innerHTML = count2;
+           --}}*/
+
 
 
         </script>
@@ -85,7 +93,7 @@
         </article>
     </div>
     {{/each}}
-    {{!--
+
     <script>
         var count = 0
         var count1 = 0
@@ -105,17 +113,17 @@
         }
 
 
-        document.getElementById("reset").onclick = function () {
-            count = 0;
-            count1 = 0;
-            count2 = 0;
-            document.getElementById("counter").innerHTML = count;
-            document.getElementById("counter1").innerHTML = count1;
-            document.getElementById("counter2").innerHTML = count2;
-        }
+        /* document.getElementById("reset").onclick = function () {
+             count = 0;
+             count1 = 0;
+             count2 = 0;
+             document.getElementById("counter").innerHTML = count;
+             document.getElementById("counter1").innerHTML = count1;
+             document.getElementById("counter2").innerHTML = count2;
+         }
+ */
 
-
-    </script> --}}
+    </script>
 
 
 

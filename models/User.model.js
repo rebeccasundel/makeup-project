@@ -24,7 +24,11 @@ const userSchema = new Schema({
       /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
       "Please enter a valid email",
     ],
-  },
+
+  }, favoriteProduct: [{
+    type: Schema.Types.ObjectId,
+    ref: "Product"
+  }],
 
   undertone: {
     type: String,

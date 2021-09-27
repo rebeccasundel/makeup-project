@@ -43,9 +43,6 @@ app.use("/user", user)
 const products = require("./routes/product");
 app.use("/product", products);
 
-// const create = require("./routes/create");
-// app.use("/create", create);
-
 const aboutUs = require("./routes/about");
 app.use("/about", aboutUs);
 

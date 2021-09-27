@@ -15,6 +15,7 @@ index-selection {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  z-index:1 ;
 }
 
 
@@ -30,8 +31,16 @@ about-section {
   p {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+   
   }
   
+/* #learn-text{
+  z-index: 0.5;
+color:red;
+
+} */
+
+
   html {
     box-sizing: border-box;
   }

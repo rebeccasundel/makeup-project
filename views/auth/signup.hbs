@@ -19,6 +19,14 @@
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
     </label>
+    
+    <p>What's your undertone?</p>
+    <input type="radio" id="tone1" name="undertone">
+    <label for="tone1">Cool Tone</label><br>
+    <input type="radio" id="tone2" name="undertone">
+    <label for="tone2">Neutral Tone</label><br>
+    <input type="radio" id="tone3" name="undertone">
+    <label for="age3">Warm Tone</label>
 
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
@@ -30,45 +38,6 @@
        </p>
     </div>
   </div>
-</form>
-
-
-
-
-
-
-{{!-- views/auth/signup.hbs --}}
-
-{{!-- <div id="form">
-  <h2>Signup</h2>
-  <form action="/auth/signup" method="POST">
-
-    <label> Username
-      <input type="text" name="username" placeholder="ironhacker" />
-    </label>
-
-    <label> Email
-      <input type="email" name="email" placeholder="rockstar@ironhack.com" />
-    </label>
-
-    <label> Password
-      <input type="password" name="password" placeholder="********" />
-    </label>
-
-    <button type="submit">Create account</button>
-
-    {{!-- error message will be added here --}}
+  {{!-- error message will be added here --}}
     <p>{{errorMessage}}</p>
-  </form>
-</div>
-
-<p>What's your undertone?</p>
-<input type="radio" id="tone1" name="undertone">
-<label for="tone1">Cool Tone</label><br>
-<input type="radio" id="tone2" name="undertone">
-<label for="tone2">Neutral Tone</label><br>
-<input type="radio" id="tone3" name="undertone">
-<label for="age3">Warm Tone</label><br><br>
-
-<button type="submit">Submit</button>
-</form> --}}
+</form>

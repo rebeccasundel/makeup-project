@@ -114,11 +114,6 @@ document.getElementById('get-product-btn').addEventListener('click', () => {
 
 
 
-
-
-
-
-
 const fetchButton = document.getElementById("add-favorites-button");
 const fetchButton1 = document.getElementById("add-favorites-button1");
 fetchButton.addEventListener("click", () => {
@@ -146,10 +141,6 @@ fetchButton.addEventListener("click", () => {
         const productid1 = responseFromAPI.data[1];
         // document.getElementById('num-fav').innerText = productid.name;
         document.getElementById('num-fav1').innerText = productid1.name;
-
-
-
-
       });
     })
   })
@@ -170,4 +161,3 @@ fetchButton.addEventListener("click", () => {
 //     });
 //   });
 // };
-

@@ -63,9 +63,9 @@ router.post("/create", (req, res, next) => {
 
 
 router.post('/create/delete/:id', (req, res, next) => {
-    const { id } = req.params;
-    console.log('The ID from the URL is: ', id);
-    Post.findByIdAndDelete(id)
+    // const { id } = req.params;
+    // console.log('The ID from the URL is: ', id);
+    Post.findByIdAndDelete(req.params.id)
         .then(() => res.redirect('/create'))
         .catch(error => next(error));
 
@@ -74,45 +74,15 @@ router.post('/create/delete/:id', (req, res, next) => {
 
 //edit
 
-
-
-// router.post('/create/:postId/edit', (req, res, next) => {
-//     const { postId } = req.params;
-//     const { name, brand, description, undertone } = req.body;
-
-//     Post.findByIdAndUpdate(postId, { name, brand, description, undertone }, { new: true })
-//         .then(updatedPost => res.redirect(`/create/${updatedPost.id}`)) // go to the details page to see the updates
-//         .catch(error => next(error));
-// });
-
-
-
-
-
-
-// router.get('/edit', (req, res, next) => {
-//     console.log('Hello');
-//     // const id = req.params.id;
-//     // console.log(id);
-//     const { id } = req.params;
-//     Post.findById(id)
-//         .then(postToEdit => {
-//             res.render('pages/edit', { post: postToEdit }); // <-- add this line
-
-//         })
-//         .catch(error => next(error));
-// });
-
-
-router.get('/edit/:id', (req, res, next) => {
+router.get('/create/edit/:id', (req, res, next) => {
 
 
 
     Post.findById(req.params.id)
-        .then((responseFromDB) => {  // bookToBeEditedFromDB - placeholder
+        .then((postToBeEditiedFromDB) => {  // bookToBeEditedFromDB - placeholder
 
             // console.log("Book to be edited: ", bookToBeEditedFromDB)
-            res.render("pages/edit", responseFromDB);
+            res.render("pages/edit", postToBeEditiedFromDB);
         })
         .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
 });
@@ -120,7 +90,7 @@ router.get('/edit/:id', (req, res, next) => {
 
 
 
-router.post("/edit/:id", (req, res, next) => {
+router.post("/create/edit/:id", (req, res, next) => {
 
     // console.log("is this UPDATED book: ", req.body);
 
@@ -132,10 +102,10 @@ router.post("/edit/:id", (req, res, next) => {
         top3,
         collectionName,
         undertone,
-        makeupId,
+
     } = req.body;
 
-    Post.findByIdAndUpdate(req.params.d, {
+    Post.findByIdAndUpdate(req.params.id, {
         brand,
         name,
         products,
@@ -143,58 +113,38 @@ router.post("/edit/:id", (req, res, next) => {
         top3,
         collectionName,
         undertone,
-        makeupId,
     }, { new: true })
-        .then(updatedPostFromDB => { // updatedBookFromDB - placeholder
-            // console.log("is this updated >>>>> ", updatedBookFromDB);
+        .then(updatePostFromDB => { // updatedBookFromDB - placeholder
 
-            res.redirect(`/create/${req.params.id}`); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO DETAILS PAGE TO SEE THE UPDATED BOOK
+
+            // res.redirect(`/create/${req.params.id}`); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO DETAILS PAGE TO SEE THE UPDATED BOOK
+            res.redirect(`/collection/create/`)
+
         })
         .catch(error => console.log("An error occurred while updating a book in the database: ", error)); // <--- .catch() - if some error happens handle it here
 });
 
-// Post.findByIdAndUpdate({ _id: req.body._id }.req.body, { new: true }, (err, doc) => {
-//     if (!err) {
-//         res.redirect('pages/create')
 
-//     } else {
-//         console.log("Error during update: " + err)
-//     }
-// })
+router.get("/create/:id", (req, res, next) => {
 
-// const id = req.params.id;
+    // console.log(req.params.bookId);
 
+    // .findById() - always returns an object
+    Post.findById(req.params.id)
+        .then(postFromDB => { // bookFromDB - placeholder
+            // console.log("A book is: ", bookFromDB);
 
-// var id = req.params.gonderi_id;
-// var o_id = new ObjectId(id);
-// db.test.find({ _id: o_id })
-// console.log({ "_id": yourObjectId });
-
-
-// res.render('pages/details')
-// // const { id } = req.params;
-// Post.findById(req.params.id)
-//     .then(postToEdit => {
-//         res.render('pages/edit', { post: postToEdit }); // <-- add this line
-
-//     })
-//     .catch(error => next(error));
+            res.render("pages/edit", postFromDB);
+        })
+        .catch(error => console.log("An error occurred while getting a book from database: ", error)); // <--- .catch() - if some error happens handle it here
+})
 
 
 
 
-// router.get('/create/post:Id', (req, res, next) => {
-//     const { postId } = req.params;
 
-//     Post.findById(postId)
-//       .then(thePost=> res.render('create/book-details.hbs', { book: theBook }))
-//       .catch(error => {
-//         console.log('Error while retrieving book details: ', error);
 
-//         // Call the error-middleware to display the error page to the user
-//         next(error);
-//       });
-//   });
+
 
 
 module.exports = router;

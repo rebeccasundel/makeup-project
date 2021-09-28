@@ -3,7 +3,7 @@
 {{!-- {{name}}
 {{brand}}
 {{description}} --}}
-<form action="/edit/{{this._id}}" method="POST">
+<form action="/collection/create/edit/{{_id}}" method="post">
     <input type="hidden" name="_id" value="{{_id}}">
     <label>
         Name:
@@ -25,4 +25,9 @@
 
 
     <button type="submit">Save changes</button>
-</form>
+
+
+
+    <form action="/create/delete/{{_id}}" method="POST">
+        <button>🗑 DELETE</button>
+    </form>

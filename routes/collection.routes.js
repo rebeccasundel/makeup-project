@@ -55,18 +55,14 @@ router.post("/create", (req, res, next) => {
 });
 
 
-// router.get("/create/edit", (req, res, next) => {
-//     res.render("pages/edit");
-// });
 
-
-
+//delete
 
 router.post('/create/delete/:id', (req, res, next) => {
     // const { id } = req.params;
     // console.log('The ID from the URL is: ', id);
     Post.findByIdAndDelete(req.params.id)
-        .then(() => res.redirect('/create'))
+        .then(() => res.redirect('/collection/create/'))
         .catch(error => next(error));
 
 });

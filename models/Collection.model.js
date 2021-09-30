@@ -10,7 +10,7 @@ const postSchema = new Schema(
         top3: { type: Number },
         posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
         id: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
-        imageUrl: { type: String },
+        path: [{ type: Array }],
         user: { type: Schema.Types.ObjectId, ref: "User" },
         undertone: { type: String, enum: ['warm', 'cool', 'neutral'] }
     }

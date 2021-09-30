@@ -1,6 +1,5 @@
 
 
-require("dotenv").config();
 
 const router = require("express").Router();
 const axios = require("axios");
@@ -9,6 +8,52 @@ const axios = require("axios");
 const ObjectId = require('mongodb').ObjectId;
 const Post = require('../models/Collection.model');
 // const ProductModel = require("../models/Product.model");
+const multer = require('multer');
+const cloudinary = require("../config/cloudinary.config");
+
+
+
+// Route to upload from project base path
+const upload = multer({ dest: './public/uploads/' });
+
+
+
+
+router.get('/upload/', (req, res, next) => {
+    res.render("pages/create-form")
+})
+
+router.post('/upload/', cloudinary("Makeup-Collection").single("photo"), (req, res) => {
+    console.log("file object", req.file);
+    res.render("pages/create", req.file)
+    // const picture = new Picture({
+    //     name: req.body.name,
+    //     path: `/uploads/${req.file.filename}`,
+    //     originalName: req.file.originalname
+    // });
+
+    // picture
+    //     .save()
+    // Post
+    //     .then(() => {
+    //         res.redirect('/collection/create');
+    //     })
+    //     .catch(err => {
+    //         next(error);
+    //     });
+
+
+});
+
+
+
+// router.get('/collection/create/', (req, res, next) => {
+//     Picture.find()
+//         .then(pictures => res.render('index', { pictures })
+//             .catch(error => next(error)));
+// });
+
+
 
 
 
@@ -26,7 +71,7 @@ router.get("/create/", (req, res, next) => {
                 imageUrl: favPost.imageUrl,
                 collectionName: favPost.collectionName,
                 undertone: favPost.undertone,
-                makeupId: req.params.makeId,
+                cloudinary_id: favPost.cloudinary_id,
                 // user: favPost.user.username,
             }))
 
@@ -145,165 +190,3 @@ router.get("/create/:id", (req, res, next) => {
 
 module.exports = router;
 
-// ****************************************************************************************
-// GET route to update (edit) a book
-// ****************************************************************************************
-
-// router.get("/create/:postId/edit", (req, res, next) => {
-
-//     Post.findById(req.params.postId)
-//         .then((postToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
-
-//             // console.log("Book to be edited: ", bookToBeEditedFromDB)
-//             res.render("pages/edit", postToBeEditedFromDB);
-//         })
-//         .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
-// });
-
-
-
-// router.get('/create/:postId/edit', (req, res, next) => {
-//     const { postId } = req.params;
-
-//     Post.findById(postId)
-//         .then(postToEdit => {
-//             res.render('create/edit.hbs', { post: postToEdit }); // <-- add this line
-
-//         })
-//         .catch(error => next(error));
-// });
-
-
-// ****************************************************************************************
-// POST route to update (edit) a book
-// ****************************************************************************************
-// <form action="/books/{{_id}}/edit" method="POST">
-
-// router.post("/create/:postId/edit", (req, res, next) => {
-
-//     // console.log("is this UPDATED book: ", req.body);
-
-//     const {
-//         brand,
-//         name,
-//         products,
-//         description,
-//         top3,
-//         collectionName,
-//         undertone,
-//         makeupId,
-//     } = req.body;
-
-//     Post.findByIdAndUpdate(req.params.postId, {
-//         brand,
-//         name,
-//         products,
-//         description,
-//         top3,
-//         collectionName,
-//         undertone,
-//         makeupId,
-//     }, { new: true })
-//         .then(updatedPostFromDB => { // updatedBookFromDB - placeholder
-//             // console.log("is this updated >>>>> ", updatedBookFromDB);
-
-//             res.redirect(`/create/${req.params.postId}`); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO DETAILS PAGE TO SEE THE UPDATED BOOK
-//         })
-//         .catch(error => console.log("An error occurred while updating a book in the database: ", error)); // <--- .catch() - if some error happens handle it here
-// });
-
-
-
-
-
-
-
-// router.get("/list", (req, res, next) => {
-//     Room.find()
-//       .populate("owner")
-//       .then((roomsFromDB) => {
-//         const copyOfRooms = roomsFromDB.map((room) => ({
-//           _id: room._id,
-//           name: room.name,
-//           description: room.description,
-//           imageUrl: room.imageUrl,
-//           owner: room.owner.username,
-//           isOwner: req.session.user._id.toString() === room.owner._id.toString(),
-//         }));
-//         res.render("room/list", copyOfRooms);
-//       });
-//   });
-
-
-
-// router.get("/create", (req, res) => {
-//     // const productInfo = req.body;
-//     Post
-//         .find({}.limit(10)
-
-//             .then((responseFromDB) => res.render(`pages/create`, { posts: responseFromDB });
-
-// });
-
-
-
-// router.post("/delete/:id", (req, res, next) => {
-//     Post.findByIdAndDelete(req.params.id).then(() => {
-//         const deletePost = responseFromDB.map((byePost) => ({
-
-//             makeupId: req.params.makeId,
-//             // user: favPost.user.username,
-//         }))
-//         res.render("pages/create", { deletePost });
-//     });
-// })
-
-
-
-// router.post('/delete/:id').delete((req, res) => {
-//     Post.findByIdAndDelete(req.params.id)
-//     console.log(req.id);
-//     res.redirect("/create");
-// });
-
-
-// router.post('/delete', function (req, res, next) {
-//     var id = req.body.id;
-//     Post.findByIdAndDelete(id).exec();
-//     res.redirect('/create');
-// });
-/* <form action="/room/{{_id}}/delete" method="post"></form> */
-// router.post("/create/:postId/delete", (req, res, next) => {
-
-//     Post.findByIdAndDelete(req.params.postId)
-//         .then(() => {
-//             res.redirect("/create"); // 🏃‍♀️ 🏃‍♀️ 🏃‍♀️ GO TO LIST OF ALL BOOKS PAGE TO SEE THAT YOUR BOOK IS NOT THERE ANY MORE
-//         })
-//         .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
-// })
-
-// router.get("/:id/edit", (req, res, next) => {
-//     Post.findById(req.params.id).then((responseFromDB) => {
-//         if (req.session.user._id.toString() === roomFromDB.owner.toString()) {
-//             res.render("create/edit", responseFromDB);
-//         } else {
-//             res.redirect("/room/list");
-//         }
-//     });
-// });
-
-// router.get("/create/:postId/edit", (req, res, next) => {
-
-//     Post.findById(req.params.postId)
-//     console.log(req.params.postId)
-//         .then((postToBeEditedFromDB) => {  // bookToBeEditedFromDB - placeholder
-
-//             // console.log("Book to be edited: ", bookToBeEditedFromDB)
-//             res.render("pages/edit", postToBeEditedFromDB);
-//         })
-//         .catch(error => console.log("An error occurred while deleting a book from the database: ", error)); // <--- .catch() - if some error happens handle it here
-// });
-
-
-
-// module.exports = router;

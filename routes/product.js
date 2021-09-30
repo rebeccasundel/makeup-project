@@ -95,7 +95,6 @@ router.get('/favorite-product/:id', (req, res, next) => {
 
 
 
-<<<<<<< HEAD
 router.post('/product/favorite-product/delete/:id', (req, res, next) => {
   // const { id } = req.params;
   // console.log('The ID from the URL is: ', id);
@@ -105,33 +104,9 @@ router.post('/product/favorite-product/delete/:id', (req, res, next) => {
 
 });
 
-=======
-router.post('/:id/rate', (req, res, next) => {
-  const { rating } = req.body;
-  const { id } = req.params;
-  Product.findByIdAndUpdate(id, {
-    // $set: {
-    //   [rating]: {
-    //     $cond: [{
-    //       $in: [id, `$${rating}`]
-    //     }, { $setDifference: [`$${rating}`, [id]] },
-    //     { $concatArrays: [`$${rating}`, [id]] }
-    //     ]
-    //   }
-    $set: { [rating]: id }
-  }, { new: true }).then(responseFromDB => {
-    console.log({ responseFromDB });
-    // res.redirect('')
-  })
-})
->>>>>>> 22f32d0a919bab4e7fc83c64d6df1ad85c78e54e
 
 
 module.exports = router;
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 22f32d0a919bab4e7fc83c64d6df1ad85c78e54e

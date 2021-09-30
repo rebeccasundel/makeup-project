@@ -4,30 +4,30 @@
 {{brand}}
 {{description}} --}}
 <form action="/collection/create/edit/{{_id}}" method="post">
-    <input type="hidden" name="_id" value="{{_id}}">
-    <label>
-        Name:
-        <input type="text" name="name" value="{{name}}">
-    </label>
-    <br>
+        <input type="hidden" name="_id" value="{{_id}}">
+        <label>
+                Name:
+                <input type="text" name="name" value="{{name}}">
+        </label>
+        <br>
 
-    <label>
-        Brand:
-        <input type="text" name="brand" value="{{brand}}">
-    </label>
-    <br>
-    <label>
-        Description:
-        <textarea name="description" cols="30" rows="5"> {{description }} </textarea>
-    </label>
-    <br>
-
-
-
-    <button type="submit">Save changes</button>
+        <label>
+                Brand:
+                <input type="text" name="brand" value="{{brand}}">
+        </label>
+        <br>
+        <label>
+                Description:
+                <textarea name="description" cols="30" rows="5"> {{description }} </textarea>
+        </label>
+        <br>
 
 
 
-    {{!-- <form action="/create/delete/{{_id}}" method="POST">
-        <button>🗑 DELETE</button> --}}
-    </form>
+        <button type="submit">Save changes</button>
+
+
+
+        {{!-- <form action="/create/delete/{{_id}}" method="POST">
+                <button>🗑 DELETE</button> --}}
+        </form>

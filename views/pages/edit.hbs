@@ -1,26 +1,33 @@
 <h2>Update a Collection</h2>
+{{!-- http://localhost:3000/collection/edit/615215563f26b89be35603ce --}}
+{{!-- {{name}}
+{{brand}}
+{{description}} --}}
+<form action="/collection/create/edit/{{_id}}" method="post">
+        <input type="hidden" name="_id" value="{{_id}}">
+        <label>
+                Name:
+                <input type="text" name="name" value="{{name}}">
+        </label>
+        <br>
+
+        <label>
+                Brand:
+                <input type="text" name="brand" value="{{brand}}">
+        </label>
+        <br>
+        <label>
+                Description:
+                <textarea name="description" cols="30" rows="5"> {{description }} </textarea>
+        </label>
+        <br>
 
 
-<form action="/edit/{{cop._id}}" method="POST">
-    <input naem="_id" value="{{cop._id}}">
-    <label>
-        Name:
-        <input type="text" name="name" value="{{cop.name}}">
-    </label>
-    <br>
 
-    <label>
-        Brand:
-        <input type="text" name="brand" value="{{cop.brand}}">
-    </label>
-    <br>
-    <label>
-        Description:
-        <textarea name="description" cols="30" rows="5"> {{cop.description }} </textarea>
-    </label>
-    <br>
+        <button type="submit">Save changes</button>
 
 
 
-    <button type="submit">Save changes</button>
-</form>
+        {{!-- <form action="/create/delete/{{_id}}" method="POST">
+                <button>🗑 DELETE</button> --}}
+        </form>

@@ -1,47 +1,13 @@
-<h1>Create Ranking List</h1>
+<h2>Upload your photo</h2>
+<form action="/collection/upload/" method="post" enctype="multipart/form-data">
 
+    <input type="file" name="photo" />
+    <input type="submit" value="Save" />
 
-<form action="/rankings/ranks" method="post">
-
-    {{!-- /api/{version}/items/?name={name} --}}
-    <input type="text" id="collection" name="Collection" placeholder="collection name" /><br>
-    <label for="one">1.</label><br>
-    <input type="text" id="brand-form" name="brand" placeholder="brand" /><br>
-    <input type="name" name="name" placeholder="name" /><br>
-    <input type="text" name="description" placeholder="description" /><br>
-    <label for="two">2.</label><br>
-    <input type="text" id="brand-form" name="brand" placeholder="brand" /><br>
-    <input type="name" name="name" placeholder="name" /><br>
-    <input type="text" name="description" placeholder="description" /><br>
-    <label for="three">3.</label><br>
-    <input type="text" id="brand-form" name="brand" placeholder="brand" /><br>
-    <input type="name" name="name" placeholder="name" /><br>
-    <input type="text" name="description" placeholder="description" /><br>
-    <label for="four">4.</label><br>
-    <input type="text" id="brand-form" name="brand" placeholder="brand" /><br>
-    <input type="name" name="name" placeholder="name" /><br>
-    <input type="text" name="description" placeholder="description" /><br>
-    <label for="five">5.</label><br>
-    <input type="text" id="brand-form" name="brand" placeholder="brand" /><br>
-    <input type="name" name="name" placeholder="name" /><br>
-    <input type="text" name="description" placeholder="description" /><br>
-    {{!-- <input type="radio" name="undertone" placeholder="undertone" /> --}}
-    <p>Recommended Undertone:</p>
-    <input type="radio" id="cool" name="cool" value="{{product.tones}}">
-    <label for="cool">Cool</label><br>
-    <input type="radio" id="neutral" name="neutral" value="neutral">
-    <label for="neutral">Neutral</label><br>
-    <input type="radio" id="warm" name="warm" value="warm">
-    <label for="warm">Warm</label><br>
-    {{!-- <div>
-        <h2>{{products.name}} <small>(ID {{products.id}})</small></h2>
-        <hr>
-        <p>Brand: {{products.brand}}</p>
-        <p>Description: {{products.description}}</p>
-        <div>
-            <img src="{{image_link}}" width="200" height="200">
-        </div> --}}
-        <input type="submit" value="Update products" class="btn-dark btn">
-
-
+    {{!--
 </form>
+<h1>Image</h1>
+<p></p>
+<img src="{{path}}" height="200"> --}}
+
+<a href="/collection/create/">create</a>

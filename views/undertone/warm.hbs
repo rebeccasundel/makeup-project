@@ -1,24 +1,28 @@
-<h1>Warm tones Favorites</h1>
+<h1> Product Details</h1>
+<a href="/product">Product list</a>
 <section class="container">
 
     <hr>
 
     <div class="row">
 
-        {{!-- {{#each posts}} --}}
+        {{!-- {{#each fav} --}}
         <div class="col-md-4">
             <article class="character">
-                <h2>{{posts.brand}} <small>(ID )</small></h2>
+                <h2>{{brand}} <small>(ID )</small></h2>
                 <hr>
                 <p>Name: {{name}}</p>
-                <p>Weapon: {{description}}</p>
-
+                <p>Description: {{description}}</p>
+                <div>
+                    <img src="{{image_link}}" width="200" height="200">
+                </div>
                 <div class="btn-group" style="width: 100%">
-                    <a href="/rankings/edit/{{id}}" class="btn btn-outline-dark btn-sm">Edit products</a>
-                    <a href="/rankings/delete/{{id}}" class="btn btn-dark btn-sm">Delete products</a>
+                    <a href="/favorite-product/{{id}}" class="btn btn-outline-dark btn-sm">View Details</a>
+                    <a href="/product/favorite-product/delete/{{_id}}'" class="btn btn-dark btn-sm">Delete products</a>
                 </div>
             </article>
         </div>
+
         {{!-- {{/each}} --}}
 
     </div>

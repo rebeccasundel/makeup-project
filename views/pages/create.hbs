@@ -1,88 +1,50 @@
-<h1>Create Favorites List</h1>
+<h1>Create Makeup Look</h1>
 {{!-- "/collection/create/{{makeupId}}" --}}
-
-<form action="/collection/create" id="create-product-list" method="POST">
-    <input type="number" id="top3" name="top3" min="1" max="3">
-    <input type="collection" name="collection" placeholder="collection name" />
-    <input type="text" id="brand-form" name="brand" placeholder="brand" />
-    <input type="name" name="name" placeholder="name" />
-    <input type="text" name="description" placeholder="description" />
-    {{!-- <input type="radio" name="undertone" placeholder="undertone" /> --}}
-    <p>Recommended Undertone:</p>
-    <input type="radio" id="cool" name="undertone" value="cool">
-    <label for="cool">Cool</label><br>
-    <input type="radio" id="neutral" name="undertone" value="neutral">
-    <label for="neutral">Neutral</label><br>
-    <input type="radio" id="warm" name="undertone" value="warm">
-    <label for="warm">Warm</label><br>
+<div>
+    <form action="/collection/create" id="create-product-list" enctype="multipart/form-data" method="POST">
+        <input type="number" id="top3" name="top3" min="1" max="3">
+        <input type="collection" name="collection" placeholder="collection name" />
+        <input type="text" id="brand-form" name="brand" placeholder="brand" />
+        <input type="name" name="name" placeholder="name" />
+        <input type="text" name="description" placeholder="description" />
+        {{!-- <input type="radio" name="undertone" placeholder="undertone" /> --}}
+        <p>Recommended Undertone:</p>
+        <input type="radio" id="cool" name="undertone" value="cool">
+        <label for="cool">Cool</label><br>
+        <input type="radio" id="neutral" name="undertone" value="neutral">
+        <label for="neutral">Neutral</label><br>
+        <input type="radio" id="warm" name="undertone" value="warm">
+        <label for="warm">Warm</label><br>
+        <button type="submit" id="createitem">Add</button>
+    </form>
     {{!-- <section>
         <h2>Upload your photo</h2>
         <form action="/upload" method="post" enctype="multipart/form-data">
             <input type="text" name="name" />
             <input type="file" name="photo" />
             <input type="submit" value="Save" />
-        </form>
-    </section> --}}
+        </form> --}}
+    </section>
+</div>
+<div>
+    <h1>Image</h1>
+    <img src="{{path}}" height="200">
+</div>
 
-    <button type="submit" id="createitem">Add</button>
-</form>
-
-
-
-{{!-- <div class="card" style="width: 18rem;">
+{{#each cop}}
+<div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">Name {{name}}</h5>
-
+        <img src="{{path}}" height="200">
         <h6 class="card-subtitle mb-2 text-muted">Brand:{{brand}}</h6>
         <p class="card-text">Description: {{description}}</p>
-        <a href="#" class="card-link">Edit</a>
-        <a href="#" class="card-link">Delete</a>
+        <h5 class="card-text">Recommended undertone:{{undertone}}</h5>
+        <a href="/collection/create/edit/{{_id}}" class="card-link">Edit</a>
+
+
+        <form action="/collection/create/delete/{{_id}}" class="card-link" method="POST">
+            <button>🗑 DELETE</button>
+        </form>
     </div>
-</div> --}}
-
-
-
-
-<h1>Collection Posts</h1>
-<hr>
-
-<div>
-
-    {{#each cop}}
-    <div class="col-md-4">
-        <p>ID: {{_id}} </p>
-
-        <h1>{{top3}}{{collectionName}}</h1>
-        <h2> Collection Name: {{name}} <small> </small></h2>
-        <h5>Brand: {{brand}}</h5>
-        <h5>Recommended undertone:{{undertone}}</h5>
-        <img src="{{imageUrl}}">
-
-        <p>Description: {{description}}</p>
-
-        <div class="btn-group" style="width: 100%">
-
-            {{!-- <a href="/collection/create/edit/{{_id}}" class=" btn btn-dark btn-sm">Edit</a> --}}
-            <a href="/edit/{{_id}}">Edit</a>
-
-            <form action="/create/delete/{{_id}}" method="POST">
-                <button>🗑 DELETE</button>
-            </form>
-        </div>
-
-
-        {{!-- /room/{{_id}}/delete --}}
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    </div>
-
-    {{/each}}
-
-
-
-
-
-
-
 </div>
+{{/each}}

@@ -5,7 +5,7 @@ const { Schema, model } = require("mongoose");
 
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const productSchema = new Schema({
+const favSchema = new Schema({
 
     brand: { type: String },
     name: { type: String },
@@ -16,7 +16,7 @@ const productSchema = new Schema({
     image_link: { type: String },
     poll: Number,
     tag_list: [String],
-
+    products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
     cool: [{ type: Schema.Types.ObjectId, ref: "User" }],
     warm: [{ type: Schema.Types.ObjectId, ref: "User" }],
     neutral: [{ type: Schema.Types.ObjectId, ref: "User" }],
@@ -24,4 +24,4 @@ const productSchema = new Schema({
 });
 
 
-module.exports = model("Product", productSchema);
+module.exports = model("Favorite", favSchema);

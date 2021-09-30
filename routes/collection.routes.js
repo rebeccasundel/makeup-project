@@ -7,25 +7,25 @@ const axios = require("axios");
 
 const ObjectId = require('mongodb').ObjectId;
 const Post = require('../models/Collection.model');
-// const ProductModel = require("../models/Product.model");
+const ProductModel = require("../models/Product.model");
 const multer = require('multer');
 const cloudinary = require("../config/cloudinary.config");
 
-const cop = responseFromDB.map((favPost) => ({
-    brand: favPost.brand,
-    name: favPost.name,
-    products: favPost.products,
-    description: favPost.description,
-    _id: favPost._id,
-    top3: favPost.top3,
-    imageUrl: favPost.imageUrl,
-    collectionName: favPost.collectionName,
-    undertone: favPost.undertone,
-    makeupId: req.params.makeId,
-    // user: favPost.user.username,
-}))
+// const cop = responseFromDB.map((favPost) => ({
+//     brand: favPost.brand,
+//     name: favPost.name,
+//     products: favPost.products,
+//     description: favPost.description,
+//     _id: favPost._id,
+//     top3: favPost.top3,
+//     imageUrl: favPost.imageUrl,
+//     collectionName: favPost.collectionName,
+//     undertone: favPost.undertone,
+//     makeupId: req.params.makeId,
+//     // user: favPost.user.username,
+// }))
 
-res.render("pages/create", { cop });
+// res.render("pages/create", { cop });
 
 // Route to upload from project base path
 const upload = multer({ dest: './public/uploads/' });
@@ -217,8 +217,8 @@ router.get("/create/", (req, res, next) => {
                     })
 
 
+                });
+        });
+});
 
-
-
-
-                    module.exports = router;
+module.exports = router;

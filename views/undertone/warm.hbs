@@ -9,6 +9,19 @@
         {{!-- {{#each fav} --}}
         <div class="col-md-4">
             <article class="character">
+
+                <h2>{{brand}} <small></small></h2>
+                <hr>
+                <p>Name: {{name}}</p>
+                <p>Description: {{description}}</p>
+                <p>Price ${{price}}</p>
+                <p>{{rating}}</p>
+                <p class="badge badge-pill badge-primary">{{tag_list}}</p>
+
+                <div>
+                    <img src="{{image_link}}" width="200" height="200">
+                </div>
+
                 <h2>{{brand}} <small>(ID )</small></h2>
                 <hr>
                 <p>Name: {{name}}</p>
@@ -27,4 +40,9 @@
 
     </div>
 
+
+            </article>
 </section>
+{{!-- <div>
+    <img src="{{path}}" height="200">
+</div> --}}

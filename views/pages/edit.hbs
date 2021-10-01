@@ -5,6 +5,51 @@
 {{description}} --}}
 <form action="/collection/create/edit/{{_id}}" method="post">
         <input type="hidden" name="_id" value="{{_id}}">
+
+        <div class="form-group col-md-4"></div>
+        <div class="col-md-4 mb-2">
+                <label>Collection Name</label>
+
+                <input class="form-control" type="collection" name="collectionName" value="{{collectionName}}" />
+        </div>
+        <div class="col-md-4 mb-2">
+                <label>Brand</label>
+                <input class="form-control" type="text" id="brand-form" name="brand" value="{{brand}}" />
+        </div>
+        <div class="col-md-4 mb-2">
+                <p>Rank your top 3 products</p>
+                <label>1.</label>
+                <input class="form-control" type="name" name="name" value="{{name}}" />
+        </div>
+        {{!-- <input type="name" name="name1" placeholder="product name" /> --}}
+        <div class="col-md-4 mb-2">
+                <label>2.</label>
+                <input class="form-control" type="name" name="name2" value="{{name2}}" />
+        </div>
+        {{!-- <input type="name" name="name1" placeholder="product name" /> --}}
+        <div class="col-md-4 mb-2">
+                <label>3.</label>
+                <input class="form-control" type="name" name="name3" value="{{name3}}" />
+        </div>
+        {{!-- <input type="name" name="name1" placeholder="product name" /> --}}
+        <div class="col-md-4 mb-2">
+                <label>Description</label>
+                <input class="form-control" type="text" name="description" col="20" value="{{description}}"></input>
+                {{!-- <input type="radio" name="undertone" placeholder="undertone" /> --}}
+        </div>
+        <p>Recommended Undertone:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path
+                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                </svg></p>
+        <input type="radio" id="cool" name="undertone" value="cool">
+        <label for="cool">Cool</label><br>
+        <input type="radio" id="neutral" name="undertone" value="neutral">
+        <label for="neutral">Neutral</label><br>
+        <input type="radio" id="warm" name="undertone" value="warm">
+        <label for="warm">Warm</label><br>
+
         <label>
                 Name:
                 <input type="text" name="name" value="{{name}}">
@@ -24,10 +69,20 @@
 
 
 
+
         <button type="submit">Save changes</button>
 
 
 
         {{!-- <form action="/create/delete/{{_id}}" method="POST">
                 <button>🗑 DELETE</button> --}}
+
         </form>
+        <style>
+
+
+
+        </style>
+
+        </form>
+

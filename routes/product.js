@@ -8,7 +8,7 @@ const Product = require('../models/Product.model')
 
 /* GET products page */
 router.get("/", (req, res, next) => {
-  Product.find({}).lean().limit(20).then((responseFromDB) => {
+  Product.find({}).lean().limit(30).then((responseFromDB) => {
     console.log({ responseFromDB })
 
     responseFromDB.forEach(product => {
@@ -30,24 +30,24 @@ router.get("/", (req, res, next) => {
 //   })
 // });
 
-router.post('/:id/rate', (req, res, next) => {
-  const { rating } = req.body;
-  const { id } = req.params;
-  Product.findByIdAndUpdate(id, {
-    // $set: {
-    //   [rating]: {
-    //     $cond: [{
-    //       $in: [id, `$${rating}`]
-    //     }, { $setDifference: [`$${rating}`, [id]] },
-    //     { $concatArrays: [`$${rating}`, [id]] }
-    //     ]
-    //   }
-    $set: { [rating]: id }
-  }, { new: true }).then(responseFromDB => {
-    console.log({ responseFromDB });
-    // res.redirect('')
-  })
-})
+// router.post('/:id/rate', (req, res, next) => {
+//   const { rating } = req.body;
+//   const { id } = req.params;
+//   Product.findByIdAndUpdate(id, {
+//     // $set: {
+//     //   [rating]: {
+//     //     $cond: [{
+//     //       $in: [id, `$${rating}`]
+//     //     }, { $setDifference: [`$${rating}`, [id]] },
+//     //     { $concatArrays: [`$${rating}`, [id]] }
+//     //     ]
+//     //   }
+//     $set: { [rating]: id }
+//   }, { new: true }).then(responseFromDB => {
+//     console.log({ responseFromDB });
+//     // res.redirect('')
+//   })
+// })
 
 
 

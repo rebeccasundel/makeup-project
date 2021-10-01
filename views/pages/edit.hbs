@@ -5,6 +5,7 @@
 {{description}} --}}
 <form action="/collection/create/edit/{{_id}}" method="post">
         <input type="hidden" name="_id" value="{{_id}}">
+
         <div class="form-group col-md-4"></div>
         <div class="col-md-4 mb-2">
                 <label>Collection Name</label>
@@ -49,6 +50,24 @@
         <input type="radio" id="warm" name="undertone" value="warm">
         <label for="warm">Warm</label><br>
 
+        <label>
+                Name:
+                <input type="text" name="name" value="{{name}}">
+        </label>
+        <br>
+
+        <label>
+                Brand:
+                <input type="text" name="brand" value="{{brand}}">
+        </label>
+        <br>
+        <label>
+                Description:
+                <textarea name="description" cols="30" rows="5"> {{description }} </textarea>
+        </label>
+        <br>
+
+
 
 
         <button type="submit">Save changes</button>
@@ -57,9 +76,13 @@
 
         {{!-- <form action="/create/delete/{{_id}}" method="POST">
                 <button>🗑 DELETE</button> --}}
+
         </form>
         <style>
 
 
 
         </style>
+
+        </form>
+

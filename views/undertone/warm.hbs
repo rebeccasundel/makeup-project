@@ -9,6 +9,7 @@
         {{!-- {{#each fav} --}}
         <div class="col-md-4">
             <article class="character">
+
                 <h2>{{brand}} <small></small></h2>
                 <hr>
                 <p>Name: {{name}}</p>
@@ -20,6 +21,25 @@
                 <div>
                     <img src="{{image_link}}" width="200" height="200">
                 </div>
+
+                <h2>{{brand}} <small>(ID )</small></h2>
+                <hr>
+                <p>Name: {{name}}</p>
+                <p>Description: {{description}}</p>
+                <div>
+                    <img src="{{image_link}}" width="200" height="200">
+                </div>
+                <div class="btn-group" style="width: 100%">
+                    <a href="/favorite-product/{{id}}" class="btn btn-outline-dark btn-sm">View Details</a>
+                    <a href="/product/favorite-product/delete/{{_id}}'" class="btn btn-dark btn-sm">Delete products</a>
+                </div>
+            </article>
+        </div>
+
+        {{!-- {{/each}} --}}
+
+    </div>
+
 
             </article>
 </section>

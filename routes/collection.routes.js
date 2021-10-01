@@ -13,7 +13,8 @@ const cloudinary = require("../config/cloudinary.config");
 
 const upload = multer({ dest: './public/uploads/' });
 
-
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 router.get('/upload/', (req, res, next) => {
@@ -28,7 +29,7 @@ router.post('/upload/', cloudinary("Makeup-Collection").single("photo"), (req, r
 
 });
 
-router.get("/create/", (req, res, next) => {
+router.get("/create/", isLoggedIn, (req, res, next) => {
     Post.find()
         .then((responseFromDB) => {
 
@@ -107,7 +108,7 @@ router.post('/create/delete/:id', (req, res, next) => {
 
 //edit
 
-router.get('/create/edit/:id', (req, res, next) => {
+router.get('/create/edit/:id', isLoggedIn, (req, res, next) => {
 
 
 
@@ -171,6 +172,8 @@ router.get("/create/:id", (req, res, next) => {
         })
         .catch(error => console.log("An error occurred while getting a product from database: ", error)); // <--- .catch() - if some error happens handle it here
 })
+
+
 
 
 

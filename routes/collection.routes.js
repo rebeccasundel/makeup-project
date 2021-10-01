@@ -91,16 +91,6 @@ router.get("/create/", (req, res, next) => {
 
             res.render("pages/create", { cop });
 
-            const {
-                brand,
-                name,
-                products,
-                description,
-                top3,
-                collectionName,
-                undertone,
-                makeupId,
-            } = req.body;
 
             Post.findByIdAndUpdate(req.params.postId, {
                 brand,

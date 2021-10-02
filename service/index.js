@@ -29,6 +29,6 @@ module.exports = ProductsApi;
 
 
 
-module.exports = ProductsApi;
+
 
 

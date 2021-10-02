@@ -39,6 +39,7 @@ router.get("/create/", isLoggedIn, (req, res, next) => {
             res.render("pages/create", { cop });
         })
 })
+
 router.post("/create/", (req, res, next) => {
     // const productInfo = req.body;
     // Post
@@ -55,9 +56,31 @@ router.post("/create/", (req, res, next) => {
 //         .then(() => res.redirect(`/collection/create/`))
 //         .catch((error) => console.log(error));
 // });
+
+
+
+
+
+
+
+
+
+
+
+
+//     })
+//     .catch(error => next(error));
+
+//     })
+//     .catch(error => next(error));
+
+//delete
+
+
 //     })
 //     .catch(error => next(error));
 //delete
+
 router.post('/create/delete/:id', (req, res, next) => {
     // const { id } = req.params;
     // console.log('The ID from the URL is: ', id);
@@ -99,6 +122,40 @@ router.post("/create/edit/:id", (req, res, next) => {
         .catch(error => console.log("An error occurred while updating a product in the database: ", error)); // <--- .catch() - if some error happens handle it here
 });
 router.get("/create/:id", (req, res, next) => {
+
+    Post.findById(req.params.id)
+        .then(postFromDB => {
+
+
+
+            Post.findById(req.params.id)
+                .then(postFromDB => {
+
+
+                    res.render("pages/edit", postFromDB);
+                })
+                .catch(error => console.log("An error occurred while getting a product from database: ", error)); // <--- .catch() - if some error happens handle it here
+        })
+
+})
+
+
+// const cop = responseFromDB.map((favPost) => ({
+//     brand: favPost.brand,
+//     name: favPost.name,
+//     products: favPost.products,
+//     description: favPost.description,
+//     _id: favPost._id,
+//     top3: favPost.top3,
+//     imageUrl: favPost.imageUrl,
+//     collectionName: favPost.collectionName,
+//     undertone: favPost.undertone,
+//     cloudinary_id: favPost.cloudinary_id,
+//     // user: favPost.user.username,
+// }))
+
+module.exports = router;
+
     Post.findById(req.params.id)
         .then(postFromDB => {
             res.render("pages/edit", postFromDB);
@@ -106,3 +163,4 @@ router.get("/create/:id", (req, res, next) => {
         .catch(error => console.log("An error occurred while getting a product from database: ", error)); // <--- .catch() - if some error happens handle it here
 })
 module.exports = router;
+

@@ -7,11 +7,7 @@
         {{#each products}}
         <div class="col-md-4">
             <article class="product">
-
                 {{!-- <h1>ID{{_id}} </h1> --}}
-
-                <h1>ID{{_id}} </h1>
-
                 <h2>{{name}} </h2>
                 <hr>
                 <p>Brand: {{brand}}</p>
@@ -25,7 +21,7 @@
                     <a href="/product/favorite-product/{{_id}}" class="btn btn-outline-dark btn-sm">View Details</a>
                     {{!-- <a href="/{{id}}/edit" class="btn btn-outline-dark btn-sm">Edit Product</a> --}}
                     {{!-- <a href="/rankings/delete/{{id}}" class="btn btn-dark btn-sm">Delete Product</a> --}}
-                    <a href="/collection/create/" class="btn btn-success">Add Favorite</a>
+                    {{!-- <a href="/collection/create/" class="btn btn-success">Add Favorite</a> --}}
                 </div>
                 <form id="create-product-list" method="POST">
 

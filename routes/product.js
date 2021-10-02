@@ -8,9 +8,7 @@ const Product = require('../models/Product.model')
 
 /* GET products page */
 router.get("/", (req, res, next) => {
-
   Product.find({}).lean().limit(30).then((responseFromDB) => {
-
 
     console.log({ responseFromDB })
 
@@ -28,7 +26,6 @@ router.get("/", (req, res, next) => {
 
 // router.post("/", (req, res, next) => {
 //   Product.create.then((responseFromDB) => {
-
 
 //     res.render("pages/list", { products: responseFromDB });
 //   })
@@ -69,7 +66,6 @@ router.get("/", (req, res, next) => {
 //       res.render("pages/warm", { products: responseFromDB });
 //     });
 // });
-
 
 router.get('/favorite-product/:id', (req, res, next) => {
 

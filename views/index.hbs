@@ -58,7 +58,7 @@
             <a href="/auth/signup" class="w3-bar-item w3-button">Sign-Up</a>
             <a href="/auth/login" class="w3-bar-item w3-button">Login</a>
             <a href="/auth/logout" class="w3-bar-item w3-button">Logout</a>
-            <a href="/collection/upload/" class="w3-bar-item w3-button">Upload Image</a>
+            {{!-- <a href="/collection/upload/" class="w3-bar-item w3-button">Upload Image</a> --}}
 
           </ul>
         </div>
@@ -71,7 +71,7 @@
         </a>
       </div>
     </div>
-    
+
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
       style="display:none" id="mySidebar">
@@ -80,7 +80,7 @@
       <a href="/product" onclick="w3_close()" class="w3-bar-item w3-button">ALL PRODUCTS</a>
       <a href="/rankings" onclick="w3_close()" class="w3-bar-item w3-button">PRODUCT SEARCH</a>
       <a href="/collection/create" onclick="w3_close()" class="w3-bar-item w3-button">CREATE COLLECTION</a>
-      <a href="/user/profile" onclick="w3_close()" class="w3-bar-item w3-button">MY PROFILE</a>
+      {{!-- <a href="/user/profile" onclick="w3_close()" class="w3-bar-item w3-button">MY PROFILE</a> --}}
       <a href="/auth/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
     </nav>
 
@@ -91,10 +91,10 @@
       <div class="w3-display-left w3-text-white" style="padding:48px">
         <span class="w3-jumbo w3-hide-small">Start something that matters</span><br>
         <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
-    <p><a href="#about" id="learn-text"
-        class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn
-        more and start today</a></p>
-  </div> 
+        <p><a href="#about" id="learn-text"
+            class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn
+            more and start today</a></p>
+      </div>
     </header>
 
 
@@ -107,16 +107,21 @@
         <div class="w3-quarter">
           <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
           <p class="w3-large">Responsive</p>
-          <p>If you have a particular makeup look you want to find, simply upload the image and let our database for you.</p>
+          <p>If you have a particular makeup look you want to find, simply upload the image and let our database for
+            you.</p>
         </div>
         <div class="w3-quarter">
           <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
           <p class="w3-large">Passion</p>
-          <p>Like a certain look? Save all of your favorite looks with a simple click into your favorites section in your profile.</p>
+          <p>Like a certain look? Save all of your favorite looks with a simple click into your favorites section in
+            your profile.</p>
         </div>
         <div class="w3-quarter">
           <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
           <a href="http://localhost:3000/rankings"></a>
+          {{!--
+          <a href="http://localhost:3000/rankings"></a> --}}
+
 
           <p class="w3-large">Design</p>
           <p>Create different unique collections based on the different makeup brands shown in our database.</p>
@@ -124,54 +129,132 @@
         <div class="w3-quarter">
           <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
           <p class="w3-large">Support</p>
-          <p>Our team works fast and efficiently to make sure we respond to everyone promptly. Your needs are our needs.</p>
+          <p>Our team works fast and efficiently to make sure we respond to everyone promptly. Your needs are our needs.
+          </p>
         </div>
       </div>
     </div>
+    {{!--
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+      <style>
+        body {
+          background-image: url('makeupcollage.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+      </style>
+    </head>
+
+    <div class="index-selection">
+      <h1>{{title}} 🚀</h1>
+
+
+    </div> --}}
+
+
+    {{!-- <style>
+      body {
+        background-image: url('makeupcollage.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style> --}}
+
+    {{!-- <h1 style="text-align: center;"></h1> --}}
+
+    {{!-- <a href="/about"> About Us</a>
+
+    <a href="/auth/signup"> Sign-Up</a>
+    <a href="/auth/login"> Login</a> --}}
+
+    {{!-- <a href="/rankings"> Product Search</a>
+    <a href="/user/profile">Profile Page</a> --}}
+
+    {{!-- <h1>{{title}} 🚀</h1>
+    <p>Welcome Ironhacker!</p> --}}
+
+
+
+    {{!-- <a href="/auth/login"> Login</a> --}}
+
+
+
+    {{!--
+    <a href="/rankings/edit/{{id}}">Edit</a>
+
+    <a href="/rankings/delete/{{id}}">Delete</a>
+
+    <a href="/rankings/delete/{{id}}">Delete</a> --}}
+
+
+    {{!-- <a href="/auth/login"> Login</a> --}}
+
+    {{!-- <a href="/product"> Products List </a>
+    <a href="/collection/create"> Create Collection </a> --}}
 
 
 
 
 
-    
-
-   
 
 
-  <!-- Footer -->
-
-  <footer class="w3-center w3-black w3-padding-64">
-    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-    <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
-    <p>Powered by <a href="https://github.com/rebeccasundel/makeup-project" title="W3.CSS" target="_blank"
-        class="w3-hover-text-green">Ironhack</a></p>
-  </footer>
 
 
-  <script>
-    // Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
 
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
 
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
+
+
+    <!-- Footer -->
+
+
+
+    {{!--
+    <script>
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script> --}}
+    <footer class="w3-center w3-black w3-padding-64">
+      <a href="/" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+      <p>Powered by <a href="https://github.com/rebeccasundel/makeup-project" title="W3.CSS" target="_blank"
+          class="w3-hover-text-green">Ironhack</a></p>
+    </footer>
+
+
+    <script>
+      // Toggle between showing and hiding the sidebar when clicking the menu icon
+      var mySidebar = document.getElementById("mySidebar");
+
+      function w3_open() {
+        if (mySidebar.style.display === 'block') {
+          mySidebar.style.display = 'none';
+        } else {
+          mySidebar.style.display = 'block';
+        }
+      }
+
+      // Close the sidebar with the close button
+      function w3_close() {
+        mySidebar.style.display = "none";
+      }
+    </script>
 
 
 </body>

@@ -49,15 +49,15 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((hashedPassword) => {
         // Create a user and save it in the database
         return User.create({
-          username,
+          username: username,
           password: hashedPassword,
-          email,
+          email: email,
         });
       })
       .then((user) => {
         console.log('hello')
         req.session.user = user;
-        res.redirect("/user/profile");
+        res.redirect("/");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -68,7 +68,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         if (error.code === 11000) {
           return res.status(400).render("auth/signup", {
             errorMessage:
-              "Username need to be unique. The username you chose is already in use.",
+              "Username and email should be unique. Please try one more time.",
           });
         }
         return res

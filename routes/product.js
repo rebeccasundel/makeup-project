@@ -8,15 +8,7 @@ const Product = require('../models/Product.model')
 
 /* GET products page */
 router.get("/", (req, res, next) => {
-<<<<<<< HEAD
   Product.find({}).lean().limit(30).then((responseFromDB) => {
-=======
-
-  Product.find({}).lean().limit(30).then((responseFromDB) => {
-
-  Product.find({}).lean().limit(20).then((responseFromDB) => {
-
->>>>>>> 319eb8dd57a13ed224eb190fd7e043ebe0dcdcf1
     console.log({ responseFromDB })
 
     responseFromDB.forEach(product => {
@@ -34,10 +26,6 @@ router.get("/", (req, res, next) => {
 // router.post("/", (req, res, next) => {
 //   Product.create.then((responseFromDB) => {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 319eb8dd57a13ed224eb190fd7e043ebe0dcdcf1
 //     res.render("pages/list", { products: responseFromDB });
 //   })
 // });
@@ -78,10 +66,6 @@ router.get("/", (req, res, next) => {
 //     });
 // });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 319eb8dd57a13ed224eb190fd7e043ebe0dcdcf1
 router.get('/favorite-product/:id', (req, res, next) => {
 
 
@@ -119,11 +103,6 @@ router.post('/product/favorite-product/delete/:id', (req, res, next) => {
     .catch(error => next(error));
 
 });
-<<<<<<< HEAD
-
-
-
-=======
 
 
 
@@ -205,7 +184,6 @@ router.post('/product/favorite-product/delete/:id', (req, res, next) => {
 
 
 
->>>>>>> 319eb8dd57a13ed224eb190fd7e043ebe0dcdcf1
 module.exports = router;
 
 

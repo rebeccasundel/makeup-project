@@ -7,11 +7,11 @@ nav {
 }
 
 
-index-selection {
+bigimg {
   padding: 50px;
-  text-align: center
+  text-align: center;
 
-  background-image url('makeupcollage.jpg');
+  background-image: url('makeupcollage.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

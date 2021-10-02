@@ -9,6 +9,7 @@ const Product = require('../models/Product.model')
 /* GET products page */
 router.get("/", (req, res, next) => {
   Product.find({}).lean().limit(30).then((responseFromDB) => {
+
     console.log({ responseFromDB })
 
     responseFromDB.forEach(product => {

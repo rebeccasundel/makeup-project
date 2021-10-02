@@ -11,7 +11,6 @@ router.get("/", (req, res, next) => {
 
   Product.find({}).lean().limit(30).then((responseFromDB) => {
 
-  Product.find({}).lean().limit(20).then((responseFromDB) => {
 
     console.log({ responseFromDB })
 

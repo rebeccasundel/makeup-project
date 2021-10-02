@@ -168,30 +168,30 @@ router.get("/create/:id", (req, res, next) => {
 
 
 
-    Post.findById(req.params.id)
-        .then(postFromDB => {
+            Post.findById(req.params.id)
+                .then(postFromDB => {
 
 
-            res.render("pages/edit", postFromDB);
+                    res.render("pages/edit", postFromDB);
+                })
+                .catch(error => console.log("An error occurred while getting a product from database: ", error)); // <--- .catch() - if some error happens handle it here
         })
-        .catch(error => console.log("An error occurred while getting a product from database: ", error)); // <--- .catch() - if some error happens handle it here
+
 })
 
 
-
-
-            const cop = responseFromDB.map((favPost) => ({
-                brand: favPost.brand,
-                name: favPost.name,
-                products: favPost.products,
-                description: favPost.description,
-                _id: favPost._id,
-                top3: favPost.top3,
-                imageUrl: favPost.imageUrl,
-                collectionName: favPost.collectionName,
-                undertone: favPost.undertone,
-                cloudinary_id: favPost.cloudinary_id,
-                // user: favPost.user.username,
-            }))
+// const cop = responseFromDB.map((favPost) => ({
+//     brand: favPost.brand,
+//     name: favPost.name,
+//     products: favPost.products,
+//     description: favPost.description,
+//     _id: favPost._id,
+//     top3: favPost.top3,
+//     imageUrl: favPost.imageUrl,
+//     collectionName: favPost.collectionName,
+//     undertone: favPost.undertone,
+//     cloudinary_id: favPost.cloudinary_id,
+//     // user: favPost.user.username,
+// }))
 
 module.exports = router;
